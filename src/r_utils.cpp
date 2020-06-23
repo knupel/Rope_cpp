@@ -6,10 +6,6 @@
 */
 
 /**
-*
-*/
-
-/**
 * Random function to compute few sort or random result.
 * v 0.0.4
 * http://www.cplusplus.com/reference/random/uniform_real_distribution/

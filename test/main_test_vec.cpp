@@ -1,9 +1,10 @@
-#include "../src/vec/vec.hpp"
-#include "../src/vec/vec2.hpp"
-#include "../src/vec/vec3.hpp"
+// #include "../src/vec/vec.hpp"
+// #include "../src/vec/vec2.hpp"
+// #include "../src/vec/vec3.hpp"
 #include "../src/vec/vec4.hpp"
+// don't need to include the previous vec.
+// because it's calling by cascade from vec4 to vec
 
-//#include "rt_utils.cpp"
 
 #include <iostream>
 #include <cstdio>

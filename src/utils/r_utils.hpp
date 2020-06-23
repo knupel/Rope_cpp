@@ -1,9 +1,13 @@
+#ifndef R_UTILS_H
+# define R_UTILS_H
+
+#pragma once
 /**
 * Rope utils function template
-* v 0.0.2
+* v 0.0.4
 * 2020-2020
 */
-#include "rope.hpp"
+#include "../rope.hpp"
 
 /**
 * set list from variadic argument
@@ -53,3 +57,30 @@ T map(T const &arg, T const &start_src, T const &stop_src, T const &start_dst, T
 		std::cout << "map(" << arg << ", " << start_src << ", " << stop_src << ", " << start_dst << ", " << stop_dst<< ") result is " << mess << std::endl;
 	return output;
 }
+
+
+
+/**
+* constrain
+* v 0.0.1
+* inspired from java
+*/
+template <typename T>
+T constrain(T const &arg, T const &min, T const &max) {
+	return (arg < min)? min : (arg > max)? max : arg;
+}
+
+/**
+* clamp
+* v 0.0.1
+* inspired from glsl, modelize on constrain function
+*/
+template <typename T>
+T clamp(T const &arg, T const &min, T const &max) {
+	return constrain(arg,min,max);
+}
+
+
+
+
+#endif

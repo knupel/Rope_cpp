@@ -1,11 +1,14 @@
 #ifndef VEC_H
 # define VEC_H
+
+#pragma once
 /*
 * vec
-* v 0.0.1
+* v 0.0.2
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL
 */
+
 #include <iostream>
 #include <cmath>
 #include <vector>
@@ -13,7 +16,7 @@
 #include <random>
 
 #include "../rope.hpp"
-#include "../r_utils_template.hpp"
+#include "../utils/r_utils.hpp"
 
 template <class T>
 class vec {
@@ -42,7 +45,7 @@ public:
 
 
 
-#include "vec.hpp"
+
 template <class T>
 vec<T>::vec() {
 	// set type

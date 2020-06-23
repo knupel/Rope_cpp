@@ -4,6 +4,191 @@
 * v 0.0.2
 * 2020-2020
 */
+/**
+* colour 
+* adaptation from Processing
+* v 0.0.1
+*/
+int const RGB = 1;
+int const HSB = 3;
+
+bool colorModeScale; // = true;
+float colorModeA = 255.0f;
+float colorModeX = 255.0f;
+float colorModeY = 255.0f;
+float colorModeZ = 255.0f;
+int colorMode = 1;
+
+bool calcAlpha = true;
+
+int calcColor = 0;
+int calcAi = 0;
+int calcRi = 0;
+int calcGi = 0;
+int calcBi = 0;
+
+float calcA = 0;
+float calcR = 0;
+float calcG = 0;
+float calcB = 0;
+// color
+int color(float gray) {
+	colorCalc(gray);
+	return calcColor;
+}
+
+
+int color(int c, float alpha) {
+	colorCalc(c, alpha);
+	return calcColor;
+}
+
+int color(float gray, float alpha) {
+	colorCalc(gray, alpha);
+	return calcColor;
+}
+
+int color(float v1, float v2, float v3) {
+	colorCalc(v1, v2, v3);
+	return calcColor;
+}
+
+int color(float v1, float v2, float v3, float a) {
+	colorCalc(v1, v2, v3, a);
+	return calcColor;
+}
+
+
+// colocCalc
+void colorCalc(int &rgb) {
+	if (((rgb & 0xff000000) == 0) && (rgb <= colorModeX)) {
+		colorCalc(rgb);
+	} else {
+		colorCalcARGB(rgb, colorModeA);
+	}
+}
+
+
+void colorCalc(int &rgb, float &alpha) {
+	if (((rgb & 0xff000000) == 0) && (rgb <= colorModeX)) {  // see above
+		colorCalc(rgb, alpha);
+
+	} else {
+		colorCalcARGB(rgb, alpha);
+	}
+}
+	
+void colorCalc(float &gray) {
+	colorCalc(gray, colorModeA);
+}
+
+void colorCalc(float &gray, float &alpha) {
+	if (gray > colorModeX)
+		gray = colorModeX;
+	if (alpha > colorModeA)
+		alpha = colorModeA;
+
+	if (gray < 0)
+		gray = 0;
+	if (alpha < 0)
+		alpha = 0;
+
+	calcR = colorModeScale ? (gray / colorModeX) : gray;
+	calcG = calcR;
+	calcB = calcR;
+	calcA = colorModeScale ? (alpha / colorModeA) : alpha;
+
+	/**
+	* PROBLEMEEEEEEE
+	*
+	*
+	*
+	*
+	*/
+	std::cout << "rgba: " << calcR << calcG << calcB << calcA << std::endl;
+
+	calcRi = (int)(calcR * 255.0f); 
+	calcGi = (int)(calcG * 255.0f);
+	calcBi = (int)(calcB * 255.0f); 
+	calcAi = (int)(calcA * 255.0f);
+	calcColor = (calcAi << 24) | (calcRi << 16) | (calcGi << 8) | calcBi;
+	calcAlpha = (calcAi != 255);
+}
+	
+void colorCalc(float &x, float &y, float &z) {
+	colorCalc(x, y, z, colorModeA);
+}
+
+void colorCalc(float &x, float &y, float &z, float &a) {
+	if (x > colorModeX) x = colorModeX;
+	if (y > colorModeY) y = colorModeY;
+	if (z > colorModeZ) z = colorModeZ;
+	if (a > colorModeA) a = colorModeA;
+
+	if (x < 0) x = 0;
+	if (y < 0) y = 0;
+	if (z < 0) z = 0;
+	if (a < 0) a = 0;
+
+	switch (colorMode) {
+	case RGB:
+		if (colorModeScale) {
+			calcR = x / colorModeX;
+			calcG = y / colorModeY;
+			calcB = z / colorModeZ;
+			calcA = a / colorModeA;
+		} else {
+			calcR = x; calcG = y; calcB = z; calcA = a;
+		}
+		break;
+
+	case HSB:
+		x /= colorModeX; // h
+		y /= colorModeY; // s
+		z /= colorModeZ; // b
+
+		calcA = colorModeScale ? (a/colorModeA) : a;
+
+		if (y == 0) {  // saturation == 0
+			calcR = calcG = calcB = z;
+		} else {
+			float which = (x - (int)x) * 6.0f;
+			float f = which - (int)which;
+			float p = z * (1.0f - y);
+			float q = z * (1.0f - y * f);
+			float t = z * (1.0f - (y * (1.0f - f)));
+
+			switch ((int)which) {
+			case 0: calcR = z; calcG = t; calcB = p; break;
+			case 1: calcR = q; calcG = z; calcB = p; break;
+			case 2: calcR = p; calcG = z; calcB = t; break;
+			case 3: calcR = p; calcG = q; calcB = z; break;
+			case 4: calcR = t; calcG = p; calcB = z; break;
+			case 5: calcR = z; calcG = p; calcB = q; break;
+			}
+		}
+		break;
+	}
+	calcRi = (int)(255 * calcR); 
+	calcGi = (int)(255 * calcG);
+	calcBi = (int)(255 * calcB); 
+	calcAi = (int)(255 * calcA);
+	calcColor = (calcAi << 24) | (calcRi << 16) | (calcGi << 8) | calcBi;
+	calcAlpha = (calcAi != 255);
+}
+
+	
+void colorCalcARGB(int &argb, float &alpha) {
+	if (alpha == colorModeA) {
+		calcAi = (argb >> 24) & 0xff;
+		calcColor = argb;
+	} else {
+		calcAi = (int) (((argb >> 24) & 0xff) * constrain((alpha / colorModeA), 0.0f, 1.0f));
+		calcColor = (calcAi << 24) | (argb & 0xFFFFFF);
+	}
+}
+
+
 
 /**
 * Random function to compute few sort or random result.

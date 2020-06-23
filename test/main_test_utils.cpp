@@ -1,8 +1,3 @@
-#include "../src/vec/vec.hpp"
-#include "../src/vec/vec2.hpp"
-#include "../src/vec/vec3.hpp"
-#include "../src/vec/vec4.hpp"
-// #include "../src/r_utils.cpp"
 #include "../src/utils/r_utils.hpp"
 
 #include <iostream>

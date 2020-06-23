@@ -1,6 +1,6 @@
 /**
 * Rope C++
-* v 0.0.3
+* v 0.0.4
 * 2020-2020
 * Rope C++ library adaptation in the same way of Rope from Processing
 * Rope mean ROmanesco Processing Environment at the beginning !!!
@@ -18,8 +18,27 @@
 #include <limits>
 #include <string>
 
+#include "./utils/r_utils.hpp"
 
-// radnom declaration
+// color
+int color(float gray);
+int color(int c, float alpha);
+int color(float gray, float alpha);
+int color(float v1, float v2, float v3);
+int color(float v1, float v2, float v3, float a);
+
+// color calc
+void colorCalc(int &rgb);
+void colorCalc(int &rgb, float &alpha);
+void colorCalc(float &gray);
+void colorCalc(float &gray, float &alpha);
+void colorCalc(float &x, float &y, float &z);
+void colorCalc(float &x, float &y, float &z, float &a);
+
+// color calc ARGB
+void colorCalcARGB(int &argb, float &alpha);
+
+// random declaration
 float random(float min, float max);
 float random(float min, float max, std::default_random_engine &generator);
 

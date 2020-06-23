@@ -81,6 +81,4 @@ T clamp(T const &arg, T const &min, T const &max) {
 }
 
 
-
-
 #endif

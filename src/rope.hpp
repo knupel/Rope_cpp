@@ -19,24 +19,76 @@
 #include <string>
 
 #include "./utils/r_utils.hpp"
+// class Rope
+class Rope {
+public:
+	Rope() {}
+	~Rope() {}
 
-// color
-int color(float gray);
-int color(int c, float alpha);
-int color(float gray, float alpha);
-int color(float v1, float v2, float v3);
-int color(float v1, float v2, float v3, float a);
+	enum Constants {
+		RGB = 1,
+		HSB = 3
+  };
 
-// color calc
-void colorCalc(int &rgb);
-void colorCalc(int &rgb, float &alpha);
-void colorCalc(float &gray);
-void colorCalc(float &gray, float &alpha);
-void colorCalc(float &x, float &y, float &z);
-void colorCalc(float &x, float &y, float &z, float &a);
+	bool colorModeScale; // = true;
+	float colorModeA = 255.0f;
+	float colorModeX = 255.0f;
+	float colorModeY = 255.0f;
+	float colorModeZ = 255.0f;
+	int colorMode = 1;
 
-// color calc ARGB
-void colorCalcARGB(int &argb, float &alpha);
+
+
+	// color
+	int color(float gray);
+	int color(int c, float alpha);
+	int color(float gray, float alpha);
+	int color(float v1, float v2, float v3);
+	int color(float v1, float v2, float v3, float a);
+
+	float red() const;
+	float gre() const;
+	float blu() const;
+	float alp() const;
+
+
+	// color calc
+protected:
+	bool calcAlpha = true;
+
+	int calcColor = 0;
+	int calcAi = 0;
+	int calcRi = 0;
+	int calcGi = 0;
+	int calcBi = 0;
+
+	float calcA = 0;
+	float calcR = 0;
+	float calcG = 0;
+	float calcB = 0;
+
+	void colorCalc(int &rgb);
+	void colorCalc(int &rgb, float &alpha);
+	void colorCalc(float &gray);
+	void colorCalc(float &gray, float &alpha);
+	void colorCalc(float &x, float &y, float &z);
+	void colorCalc(float &x, float &y, float &z, float &a);
+
+	// color calc ARGB
+	void colorCalcARGB(int &argb, float &alpha);
+};
+
+
+
+
+
+
+
+
+
+
+
+
 
 // random declaration
 float random(float min, float max);

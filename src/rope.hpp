@@ -35,7 +35,7 @@ public:
 	float colorModeX = 255.0f;
 	float colorModeY = 255.0f;
 	float colorModeZ = 255.0f;
-	int colorMode = 1;
+	int _colorMode = 1;
 
 
 
@@ -76,13 +76,13 @@ protected:
 
 	// color calc ARGB
 	void colorCalcARGB(int &argb, float &alpha);
+
+	void colorMode(int mode, float x, float y, float z, float a);
+	void colorMode(int mode, float x, float y, float z);
+	void colorMode(int mode, float gray, float a);
+	void colorMode(int mode, float arg);
+	void colorMode(int mode);
 };
-
-
-
-
-
-
 
 
 

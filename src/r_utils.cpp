@@ -5,16 +5,9 @@
 * 2020-2020
 */
 
-/**
-* Rope
-*/
-
-
-
-
 
 /**
-* colour 
+* Rope::colour 
 * adaptation from Processing
 * v 0.0.1
 */
@@ -118,7 +111,7 @@ void Rope::colorCalc(float &x, float &y, float &z, float &a) {
 	if (z < 0) z = 0;
 	if (a < 0) a = 0;
 
-	switch (colorMode) {
+	switch (_colorMode) {
 	case RGB:
 		if (colorModeScale) {
 			calcR = x / colorModeX;
@@ -178,19 +171,54 @@ void Rope::colorCalcARGB(int &argb, float &alpha) {
 
 
 float Rope::red() const {
-	return calcR;
+	return calcR * colorModeX;
 }
 
 float Rope::gre() const {
-	return calcG;
+	return calcG * colorModeY;
 }
 
 float Rope::blu() const {
-	return calcB;
+	return calcB * colorModeZ;
 }
 
 float Rope::alp() const {
-	return calcA;
+	return calcA * colorModeA;
+}
+
+void Rope::colorMode(int mode, float x, float y, float z, float a) {
+	_colorMode = mode;
+	colorModeX = x;
+	colorModeY = y;
+	colorModeZ = z;
+	colorModeA = a;
+}
+
+void Rope::colorMode(int mode, float x, float y, float z) {
+	_colorMode = mode;
+	colorModeX = x;
+	colorModeY = y;
+	colorModeZ = z;
+}
+
+void Rope::colorMode(int mode, float gray, float a) {
+	_colorMode = mode;
+	colorModeX = gray;
+	colorModeY = gray;
+	colorModeZ = gray;
+	colorModeA = a;
+}
+
+void Rope::colorMode(int mode, float arg) {
+	_colorMode = mode;
+	colorModeX = arg;
+	colorModeY = arg;
+	colorModeZ = arg;
+	colorModeA = arg;
+}
+
+void Rope::colorMode(int mode) {
+	_colorMode = mode;
 }
 
 

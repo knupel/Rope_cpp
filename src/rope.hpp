@@ -18,7 +18,8 @@
 #include <limits>
 #include <string>
 
-#include "./utils/r_utils.hpp"
+#include "./template/utils/r_utils.hpp"
+
 // class Rope
 class Rope {
 public:
@@ -51,6 +52,12 @@ public:
 	float blu() const;
 	float alp() const;
 
+	void colorMode(int mode, float x, float y, float z, float a);
+	void colorMode(int mode, float x, float y, float z);
+	void colorMode(int mode, float gray, float a);
+	void colorMode(int mode, float arg);
+	void colorMode(int mode);
+
 
 	// color calc
 protected:
@@ -76,49 +83,7 @@ protected:
 
 	// color calc ARGB
 	void colorCalcARGB(int &argb, float &alpha);
-
-	void colorMode(int mode, float x, float y, float z, float a);
-	void colorMode(int mode, float x, float y, float z);
-	void colorMode(int mode, float gray, float a);
-	void colorMode(int mode, float arg);
-	void colorMode(int mode);
 };
 
-
-
-
-
-
-
-// random declaration
-float random(float min, float max);
-float random(float min, float max, std::default_random_engine &generator);
-
-double random_double(double min, double max);
-double random_double(double min, double max, std::default_random_engine &generator);
-
-long double random_long_double(long double min, long double max);
-long double random_long_double(long double min, long double max, std::default_random_engine &generator);
-
-bool random_bool();
-bool random_bool(std::default_random_engine &generator);
-
-int random_int(int min, int max);
-int random_int(int min, int max, std::default_random_engine &generator);
-
-long random_long(long min, long max);
-long random_long(long min, long max, std::default_random_engine &generator);
-
-char random_char(char min, char max);
-char random_char(char min, char max, std::default_random_engine &generator);
-
-double random_normal(double min, double max);
-double random_normal(double min, double max, std::default_random_engine &generator);
-
-int random_geom(double arg);
-int random_geom(double arg, std::default_random_engine &generator);
-
-double random_exp(double arg);
-double random_exp(double arg, std::default_random_engine &generator);
 
 #endif

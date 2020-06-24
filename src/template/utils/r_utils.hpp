@@ -4,11 +4,12 @@
 #pragma once
 /**
 * Rope utils function template
-* v 0.0.4
+* v 0.0.5
 * 2020-2020
 */
-#include "../rope.hpp"
-
+#include <iostream>
+#include <vector>
+#include <cmath>
 /**
 * set list from variadic argument
 */

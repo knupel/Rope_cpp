@@ -4,7 +4,7 @@
 #pragma once
 /*
 * vec
-* v 0.0.2
+* v 0.1.0
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL
 */
@@ -13,9 +13,8 @@
 #include <cmath>
 #include <vector>
 #include <string>
-#include <random>
 
-#include "../rope.hpp"
+#include "../../r_functions.hpp"// 
 #include "../utils/r_utils.hpp"
 
 template <class T>

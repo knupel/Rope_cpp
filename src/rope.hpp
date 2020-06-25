@@ -1,6 +1,6 @@
 /**
 * Rope C++
-* v 0.0.4
+* v 0.0.6
 * 2020-2020
 * Rope C++ library adaptation in the same way of Rope from Processing
 * Rope mean ROmanesco Processing Environment at the beginning !!!
@@ -19,17 +19,14 @@
 #include <string>
 
 #include "./template/utils/r_utils.hpp"
+#include "./rope_lexicon.hpp"
 
 // class Rope
-class Rope {
+class Rope : public Lexicon {
 public:
-	Rope() {}
-	~Rope() {}
+	Rope();
+	~Rope();
 
-	enum Constants {
-		RGB = 1,
-		HSB = 3
-  };
 
 	bool colorModeScale; // = true;
 	float colorModeA = 255.0f;
@@ -37,6 +34,8 @@ public:
 	float colorModeY = 255.0f;
 	float colorModeZ = 255.0f;
 	int _colorMode = 1;
+
+	virtual int instance() const;
 
 
 
@@ -52,11 +51,13 @@ public:
 	float blu() const;
 	float alp() const;
 
+	int colorMode();
 	void colorMode(int mode, float x, float y, float z, float a);
 	void colorMode(int mode, float x, float y, float z);
 	void colorMode(int mode, float gray, float a);
 	void colorMode(int mode, float arg);
 	void colorMode(int mode);
+
 
 
 	// color calc

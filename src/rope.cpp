@@ -1,9 +1,27 @@
 /**
 * ROPE CLASS
-* v 0.1.0
+* v 0.1.1
 * 2020-2020
 */
 #include "rope.hpp"
+
+// instance
+int Rope::instance() const{
+	return _instance;
+}
+
+Rope::Rope() {
+	std::cout << "Rope Constructor" << std::endl;
+	Rope::_instance++;
+	return;
+}
+
+Rope::~Rope() {
+	std::cout << "Rope Destructor" << std::endl;
+	Rope::_instance--;
+	return;
+}
+
 
 
 /**
@@ -119,7 +137,10 @@ void Rope::colorCalc(float &x, float &y, float &z, float &a) {
 			calcB = z / colorModeZ;
 			calcA = a / colorModeA;
 		} else {
-			calcR = x; calcG = y; calcB = z; calcA = a;
+			calcR = x; 
+			calcG = y; 
+			calcB = z; 
+			calcA = a;
 		}
 		break;
 
@@ -184,6 +205,14 @@ float Rope::blu() const {
 
 float Rope::alp() const {
 	return calcA * colorModeA;
+}
+
+/**
+* colorMode
+*/
+
+int Rope::colorMode() {
+	return _colorMode;
 }
 
 void Rope::colorMode(int mode, float x, float y, float z, float a) {

@@ -14,7 +14,7 @@
 #include <vector>
 #include <string>
 
-#include "../../r_functions.hpp"// 
+#include "../../rope_functions.hpp"// 
 #include "../utils/r_utils.hpp"
 
 template <class T>

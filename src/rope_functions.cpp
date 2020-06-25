@@ -5,7 +5,7 @@
 */
 
 
-#include "./r_functions.hpp"
+#include "./rope_functions.hpp"
 /**
 * Random function to compute few sort or random result.
 * v 0.0.4
@@ -31,7 +31,6 @@ double random_double(double min, double max) {
 }
 
 double random_double(double min, double max, std::default_random_engine &generator) {
-						std::cout << "je suis double generator" << std::endl;
 	std::uniform_real_distribution<double> gen_rand_double(min,max);
 	return gen_rand_double(generator); 
 }

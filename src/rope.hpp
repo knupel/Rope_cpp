@@ -1,6 +1,6 @@
 /**
 * Rope C++
-* v 0.0.6
+* v 0.0.7
 * 2020-2020
 * Rope C++ library adaptation in the same way of Rope from Processing
 * Rope mean ROmanesco Processing Environment at the beginning !!!
@@ -40,6 +40,7 @@ public:
 
 
 	// color
+	int color(int c);
 	int color(float gray);
 	int color(int c, float alpha);
 	int color(float gray, float alpha);

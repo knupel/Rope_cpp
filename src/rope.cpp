@@ -1,6 +1,6 @@
 /**
 * ROPE CLASS
-* v 0.1.1
+* v 0.1.2
 * 2020-2020
 */
 #include "rope.hpp"
@@ -27,10 +27,16 @@ Rope::~Rope() {
 /**
 * Rope::colour 
 * adaptation from Processing
-* v 0.0.1
+* v 0.0.3
 */
 
 // color
+int Rope::color(int c) {
+	std::cout << "step 1" << std::endl;
+	colorCalc(c);
+	return calcColor;
+}
+
 int Rope::color(float gray) {
 	colorCalc(gray);
 	return calcColor;
@@ -61,8 +67,14 @@ int Rope::color(float v1, float v2, float v3, float a) {
 // colocCalc
 void Rope::colorCalc(int &rgb) {
 	if (((rgb & 0xff000000) == 0) && (rgb <= colorModeX)) {
+		// this line is weird, 
+		// because in this case I have a feeling 
+		// that's can became an infinity loop ?
+		// plus, idon't understand well this part : ((rgb & 0xff000000) == 0)
+		std::cout << "step 2.0" << std::endl;
 		colorCalc(rgb);
 	} else {
+		std::cout << "step 2.1" << std::endl;
 		colorCalcARGB(rgb, colorModeA);
 	}
 }
@@ -71,7 +83,6 @@ void Rope::colorCalc(int &rgb) {
 void Rope::colorCalc(int &rgb, float &alpha) {
 	if (((rgb & 0xff000000) == 0) && (rgb <= colorModeX)) {  // see above
 		colorCalc(rgb, alpha);
-
 	} else {
 		colorCalcARGB(rgb, alpha);
 	}
@@ -96,15 +107,6 @@ void Rope::colorCalc(float &gray, float &alpha) {
 	calcG = calcR;
 	calcB = calcR;
 	calcA = colorModeScale ? (alpha / colorModeA) : alpha;
-
-	/**
-	* PROBLEMEEEEEEE
-	*
-	*
-	*
-	*
-	*/
-	std::cout << "rgba: " << calcR << calcG << calcB << calcA << std::endl;
 
 	calcRi = (int)(calcR * 255.0f); 
 	calcGi = (int)(calcG * 255.0f);
@@ -181,6 +183,18 @@ void Rope::colorCalc(float &x, float &y, float &z, float &a) {
 
 	
 void Rope::colorCalcARGB(int &argb, float &alpha) {
+	// the problem is here, because there is no setting of
+	// calcRi
+	// calcGi
+	// calcBi
+	// calcAi
+	/**
+	*****
+
+
+
+	*/
+	// need to find an int convertor.
 	if (alpha == colorModeA) {
 		calcAi = (argb >> 24) & 0xff;
 		calcColor = argb;

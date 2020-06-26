@@ -1,6 +1,6 @@
 /**
 * ROPE CLASS
-* v 0.1.3
+* v 0.1.4
 * 2020-2020
 */
 #include "rope.hpp"
@@ -27,12 +27,11 @@ Rope::~Rope() {
 /**
 * Rope::colour 
 * adaptation from Processing PGraphics.java part of core
-* v 0.0.4
+* v 0.0.5
 */
 
 // color
 int Rope::color(int c) {
-	std::cout << "step 1" << std::endl;
 	colorCalc(c);
 	return calcColor;
 }

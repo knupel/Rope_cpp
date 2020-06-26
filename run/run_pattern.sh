@@ -1,8 +1,8 @@
 path_test="../test/"
-path="../src/"
-path_template="../src/template/"
-path_class="../src/class/"
-path_function="../src/function/"
+path="../rope/"
+path_template="../rope/template/"
+path_class="../rope/class/"
+path_function="../rope/function/"
 clang++ -std=c++11 \
 ${path_test}main_test_color.cpp \
 ${path}*.cpp ${path}*.hpp \

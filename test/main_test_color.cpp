@@ -1,4 +1,4 @@
-#include "../src/rope.hpp"
+#include "../rope/rope.hpp"
 
 #include <iostream>
 #include <cstdio>

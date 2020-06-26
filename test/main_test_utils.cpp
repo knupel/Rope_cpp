@@ -1,5 +1,5 @@
-#include "../src/template/utils/r_utils.hpp"
-#include "../src/rope_functions.hpp"
+#include "../rope/template/utils/r_utils.hpp"
+#include "../rope/rope_functions.hpp"
 
 #include <iostream>
 #include <cstdio>

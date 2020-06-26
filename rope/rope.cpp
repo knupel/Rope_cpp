@@ -1,6 +1,6 @@
 /**
 * ROPE CLASS
-* v 0.1.2
+* v 0.1.3
 * 2020-2020
 */
 #include "rope.hpp"
@@ -26,8 +26,8 @@ Rope::~Rope() {
 
 /**
 * Rope::colour 
-* adaptation from Processing
-* v 0.0.3
+* adaptation from Processing PGraphics.java part of core
+* v 0.0.4
 */
 
 // color
@@ -41,7 +41,6 @@ int Rope::color(float gray) {
 	colorCalc(gray);
 	return calcColor;
 }
-
 
 int Rope::color(int c, float alpha) {
 	colorCalc(c, alpha);
@@ -71,17 +70,15 @@ void Rope::colorCalc(int &rgb) {
 		// because in this case I have a feeling 
 		// that's can became an infinity loop ?
 		// plus, idon't understand well this part : ((rgb & 0xff000000) == 0)
-		std::cout << "step 2.0" << std::endl;
 		colorCalc(rgb);
 	} else {
-		std::cout << "step 2.1" << std::endl;
 		colorCalcARGB(rgb, colorModeA);
 	}
 }
 
 
 void Rope::colorCalc(int &rgb, float &alpha) {
-	if (((rgb & 0xff000000) == 0) && (rgb <= colorModeX)) {  // see above
+	if (((rgb & 0xff000000) == 0) && (rgb <= colorModeX)) {
 		colorCalc(rgb, alpha);
 	} else {
 		colorCalcARGB(rgb, alpha);
@@ -181,20 +178,10 @@ void Rope::colorCalc(float &x, float &y, float &z, float &a) {
 	calcAlpha = (calcAi != 255);
 }
 
-	
+/**
+* Final method to convert int value + alpha to rgbs component value can be used
+*/
 void Rope::colorCalcARGB(int &argb, float &alpha) {
-	// the problem is here, because there is no setting of
-	// calcRi
-	// calcGi
-	// calcBi
-	// calcAi
-	/**
-	*****
-
-
-
-	*/
-	// need to find an int convertor.
 	if (alpha == colorModeA) {
 		calcAi = (argb >> 24) & 0xff;
 		calcColor = argb;
@@ -202,6 +189,14 @@ void Rope::colorCalcARGB(int &argb, float &alpha) {
 		calcAi = (int) (((argb >> 24) & 0xff) * constrain((alpha / colorModeA), 0.0f, 1.0f));
 		calcColor = (calcAi << 24) | (argb & 0xFFFFFF);
 	}
+	calcRi = (argb >> 16) & 0xff;
+	calcGi = (argb >> 8) & 0xff;
+	calcBi = argb & 0xff;
+	calcA = calcAi / 255.0f;
+	calcR = calcRi / 255.0f;
+	calcG = calcGi / 255.0f;
+	calcB = calcBi / 255.0f;
+	calcAlpha = (calcAi != 255);
 }
 
 
@@ -224,7 +219,6 @@ float Rope::alp() const {
 /**
 * colorMode
 */
-
 int Rope::colorMode() {
 	return _colorMode;
 }

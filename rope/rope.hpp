@@ -19,10 +19,10 @@
 #include <string>
 
 #include "./template/utils/r_utils.hpp"
-#include "./class/rope_lexicon.hpp"
+#include "./class/R_Lexicon.hpp"
 
 // class Rope
-class Rope : public Lexicon {
+class Rope : public R_Lexicon {
 public:
 	Rope();
 	~Rope();

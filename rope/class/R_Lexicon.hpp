@@ -1,13 +1,13 @@
 /**
 * Rope Lexicon
-* v 0.0.1
+* v 0.0.2
 * 2020-2020
 */
 
-#ifndef LEXICON_H
-# define LEXICON_H
+#ifndef R_LEXICON_H
+# define R_LEXICON_H
 
-class Lexicon {
+class R_Lexicon {
 public:
 	virtual int instance() const = 0;
 

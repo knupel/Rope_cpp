@@ -16,7 +16,6 @@ class R_Body {
 		R_Body(float x, float y, float z);
 		~R_Body();
 
-
 		// info
 		static int get_instance();
 		static void warning(bool is);

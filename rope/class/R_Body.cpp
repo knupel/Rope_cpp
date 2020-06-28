@@ -8,7 +8,6 @@ R_Body::R_Body() {
 		std::cout << "R_Body default constructor" << std::endl;
 		R_Body::instance++;
 	}
-	// this->size = 1.0f;
 	return;
 }
 
@@ -17,7 +16,6 @@ R_Body::R_Body(float x, float y, float z) : _x(x), _y(y), _z(z) {
 		std::cout << "R_Body parametric constructor" << std::endl;
 		R_Body::instance++;
 	}
-	// this->size = 1.0f;
 	return;
 }
 

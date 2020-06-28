@@ -1,6 +1,6 @@
 /**
 * Rope C++
-* v 0.0.7
+* v 0.0.8
 * 2020-2020
 * Rope C++ library adaptation in the same way of Rope from Processing
 * Rope mean ROmanesco Processing Environment at the beginning !!!

@@ -1,11 +1,14 @@
 /**
 * ROPE FUNCTIONS
-* v 0.0.1
+* v 0.0.2
 * 2020-2020
 */
 
 
 #include "./rope_functions.hpp"
+
+
+
 /**
 * Random function to compute few sort or random result.
 * v 0.0.4

@@ -4,12 +4,14 @@
 #pragma once
 /**
 * Rope utils function template
-* v 0.0.5
+* v 0.1.0
 * 2020-2020
 */
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include "../vec/vec.hpp"
+// #include "../vec/vec4.hpp"
 /**
 * set list from variadic argument
 */
@@ -81,5 +83,35 @@ T clamp(T const &arg, T const &min, T const &max) {
 	return constrain(arg,min,max);
 }
 
+
+
+/**
+* bool dist_manhathan()
+* v 0.0.1
+* 2020-2020
+* return if an element is in the range 5 once faster with 10% range of error
+* inspired fom this article
+* https://en.wikipedia.org/wiki/Taxicab_geometry
+* https://stackoverflow.com/questions/3693514/very-fast-3d-distance-check
+*/
+template <typename T>
+bool dist_manhathan(T dist, vec<T> &arg) {
+	for(T elem : arg.list()) {
+		if(elem + elem > dist)
+			return false;
+	}
+	return true; 	
+}
+
+template <typename T>
+bool dist_manhathan(T dist, T x, T y ,T z) {
+	if(x + x > dist)
+		return false;
+	if(y + y > dist)
+		return false;
+	if(z + z > dist)
+		return false;
+	return true; 	
+}
 
 #endif

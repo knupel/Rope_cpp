@@ -1,14 +1,10 @@
 // when you include vec4, you include all vec by cascade
-#include "../rope/template/vec/vec4.hpp"
+
 // don't need to include the previous vec.
 // because it's calling by cascade from vec4 to vec
 
+#include "./test_vec.hpp"
 
-#include <iostream>
-#include <cstdio>
-#include <cmath>
-#include <chrono>
-#include <ctime>
 
 
 // c++11 methode
@@ -62,6 +58,9 @@ int main() {
 
 	vec4<long double> ld_4(10);
 	vec4<double> d_4(10);
+
+	// random_test();
+	dist_mag_test();
 
 
 
@@ -326,37 +325,7 @@ int main() {
 
 
 
-	/**
-	* random ec generator
-	*/
-	// time
-	std::cout << "a: " << a << " type: " << a.get_type() << " random: " << a.rand(0,1) <<std::endl;
-	auto start = std::chrono::system_clock::now();
 
-	// SLOW with a lot of instance
-	for(int i = 0 ; i < 100000 ; i++) {
-		a.rand(0,1);
-		// std::cout << a.rand(0,1000) <<std::endl; 
-	}
-	// FASTER
-	std::random_device seed;
-	std::default_random_engine generator(seed());
-	for(int i = 0 ; i < 100 ; i++) {
-		a.rand(0,1,generator);
-		// std::cout << a.rand(0,1000,generator) <<std::endl; 
-	}
-
-  // time
-	auto end = std::chrono::system_clock::now();
-	std::chrono::duration<double> elapsed_seconds = end-start;
-	std::cout << "elapsed time: " << elapsed_seconds.count() << std::endl;
-
-	std::cout << "e: " << e << " type: " << e.get_type() << " random: " << e.rand(-10,10) << std::endl;
-	// test time
-
-	std::cout << f_3.set(1,2,3) << std::endl;
-	std::cout << f_3.z(8) << std::endl;
-	std::cout << f_3.rand(0,1000,generator) <<std::endl; 
 
 
 
@@ -467,21 +436,7 @@ int main() {
 
 
 
-	/**
-	* DISTANCE / MAG
-	*/
-	// std::cout << c << d << std::endl;
-	// std::cout <<"c.dist(d): " << c.dist(d) << std::endl;
-	// std::cout << a_3 << b_3 << std::endl;
-	// std::cout << "a_3.dist(b_3): " << a_3.dist(b_3) << std::endl;
-	// std::cout << "a_3.mag(): " << a_3.mag() << std::endl;
-	// std::cout << "b_3.mag(): " << b_3.mag() << std::endl;
 
-	// std::cout <<"a.mag(): " << a.mag() << std::endl;
-	// std::cout <<"a.mag(b): " << a.mag(b) << std::endl;
-  
-	// std::cout <<"a.mag_sq(): " << b.mag_sq() << std::endl;
-	// std::cout <<"a.mag_sq(b): " << b.mag_sq(a) << std::endl;
 
 
 

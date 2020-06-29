@@ -1,13 +1,13 @@
-path_test="../test/"
+path_test="../test/vec/"
 path="../rope/"
 path_template="../rope/template/"
 path_class="../rope/class/"
 path_function="../rope/function/"
 clang++ -std=c++11 \
-${path_test}main_test_vec.cpp \
+${path_test}*.cpp \
 ${path}*.cpp ${path}*.hpp \
 ${path_template}vec/*.hpp \
 && ./a.out \
-&& rm ${path}/*.gch ${path_template}vec/*.gch
+&& rm ${path}*.gch ${path_template}vec/*.gch
 
 

@@ -3,26 +3,66 @@
  Contrairement à Rope qui est très lié à Processing, Rope C++ est libre de tout framework et peut-être utilisée seule.
  [rope](https://github.com/StanLepunK/Rope) [Processing](https://github.com/processing/processing)
 
+# test
+Tout le code possède une partie test que vous retrouvez dans le dossier `test`, vous pouvez les lancer via les différents que vous trouverez dans le dossier `run`
 # contenu
+L'ensemble du code se trouve dans le dossier `rope`si vous souhaiter vous en servir copier coller le dans votre projet et faire vos `include` en respectant le chemin.
 
+## classes
+* Rope 
+* R_Body
 
-# Template class
-* vec * vec2 * vec3 * vec4
+## Template classes
+* vec 
+* vec2 
+* vec3 
+* vec4
 
-# template function
-## math
+## template functions
+### math geometry
 * coord_polar() 
-*coord_sphere_math
+* coord_sphere_math
 
-## utils
+### utils
 * void set_list(std::vector<V,A> &list, T ... elem)
 * T map(T const &arg, T const &start_src, T const &stop_src, T const &start_dst, T const &stop_dst)
 * T constrain(T const &arg, T const &min, T const &max)
 * T clamp(T const &arg, T const &min, T const &max)
 
+### functions
+#### functions random
+* float random(float min, float max);
+* float random(float min, float max, std::default_random_engine &generator);
 
-# class
-* Rope * R_Body
+* double random_double(double min, double max);
+* double random_double(double min, double max, std::default_random_engine &generator);
+
+* long double random_long_double(long double min, long double max);
+* long double random_long_double(long double min, long double max, std::default_random_engine &generator);
+
+* bool random_bool();
+* bool random_bool(std::default_random_engine &generator);
+
+* int random_int(int min, int max);
+* int random_int(int min, int max, std::default_random_engine &generator);
+
+* long random_long(long min, long max);
+* long random_long(long min, long max, std::default_random_engine &generator);
+
+* char random_char(char min, char max);
+* char random_char(char min, char max, std::default_random_engine &generator);
+
+* double random_normal(double min, double max);
+* double random_normal(double min, double max, std::default_random_engine &generator);
+
+* int random_geom(double arg);
+* int random_geom(double arg, std::default_random_engine &generator);
+
+* double random_exp(double arg);
+* double random_exp(double arg, std::default_random_engine &generator);
+
+
+
 
 
 

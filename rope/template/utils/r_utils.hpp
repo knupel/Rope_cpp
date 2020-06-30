@@ -89,13 +89,16 @@ T clamp(T const &arg, T const &min, T const &max) {
 * bool dist_manhathan()
 * v 0.0.1
 * 2020-2020
-* return if an element is in the range 5 once faster with 10% range of error
+* return if an element is in the range 5 once faster 
+* with 10% range of error for the draw 
+* and 5% for the error distance
+* Note : more there is dimension vor your vector, less there is error.
 * inspired fom this article
 * https://en.wikipedia.org/wiki/Taxicab_geometry
 * https://stackoverflow.com/questions/3693514/very-fast-3d-distance-check
 */
 template <typename T>
-bool dist_manhathan(T dist, vec<T> &arg) {
+bool dist_manhattan(T dist, vec<T> &arg) {
 	for(T elem : arg.list()) {
 		if(elem + elem > dist)
 			return false;
@@ -104,12 +107,14 @@ bool dist_manhathan(T dist, vec<T> &arg) {
 }
 
 template <typename T>
-bool dist_manhathan(T dist, T x, T y ,T z) {
+bool dist_manhattan(T dist, T x, T y ,T z = 0, T w = 0) {
 	if(x + x > dist)
 		return false;
 	if(y + y > dist)
 		return false;
 	if(z + z > dist)
+		return false;
+	if(w + w > dist)
 		return false;
 	return true; 	
 }

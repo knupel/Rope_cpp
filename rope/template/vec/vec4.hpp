@@ -2,7 +2,7 @@
 # define VEC4_H
 /*
 * vec4
-* v 0.0.2
+* v 0.0.3
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL.
 */
@@ -432,6 +432,21 @@ public:
 	// abs
 	vec4 & abs();
 
+
+	// square length can be usefull and faster when the real length is not necessary
+	T mag_sq() const;
+	T mag_sq(vec4<T> const &v) const;
+	// Calculate the magnitude, distance or length of the vector or between two vectors.
+	// mag and dist is a same methode
+	double mag() const;
+	double mag(vec4<T> const &v) const;
+	// Calculate the magnitude, distance or length of the vector or between two vectors.
+	// call mag to calculate the the dist
+	double dist() const;
+	double dist(vec4<T> const &v) const;
+
+
+
 	// tan
 	// from vec2
 
@@ -815,6 +830,46 @@ vec4<T>	& vec4<T>::abs() {
 	}
 	return *this;
 }
+
+// mag_sq
+template <class T>
+T vec4<T>::mag_sq() const {
+	return ((this->_x * this->_x) 
+				+ (this->_y * this->_y)
+				+ (this->_z * this->_z)
+				+ (this->_w * this->_w));
+}
+
+template <class T>
+T vec4<T>::mag_sq(vec4<T> const &v) const {
+	return (((v.x() - this->_x) * (v.x() - this->_x))
+				+ ((v.y() - this->_y) * (v.y() - this->_y))
+				+ ((v.z() - this->_z) * (v.z() - this->_z))
+				+ ((v.w() - this->_w) * (v.w() - this->_w)));
+}
+
+// mag
+template <class T>
+double vec4<T>::mag() const {
+	return ::sqrt(vec4<T>::mag_sq());
+}
+
+template <class T>
+double vec4<T>::mag(vec4<T> const &v) const {
+	return ::sqrt(vec4<T>::mag_sq(v));
+}
+
+// dist
+template <class T>
+double vec4<T>::dist() const {
+	return vec4<T>::mag();
+}
+
+template <class T>
+double vec4<T>::dist(vec4<T> const &v) const {
+	return vec4<T>::mag(v);
+}
+
 
 
 // pow

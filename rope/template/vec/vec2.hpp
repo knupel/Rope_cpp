@@ -2,7 +2,7 @@
 # define VEC2_H
 /*
 * vec2
-* v 0.0.2
+* v 0.0.3
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL
 */
@@ -486,22 +486,20 @@ double vec2<T>::heading() const {
 // mag_sq
 template <class T>
 T vec2<T>::mag_sq() const {
-	return vec<T>::mag_sq();
+	return ((this->_x * this->_x) 
+				+ (this->_y * this->_y));
 }
 
 template <class T>
 T vec2<T>::mag_sq(vec2<T> const &v) const {
-	T res = 0;
-	for(size_t i = 0 ; i < this->v_list.size() ; i++) {
-		res += ((v.v_list.at(i)[0] - this->v_list.at(i)[0]) * (v.v_list.at(i)[0] - this->v_list.at(i)[0]));
-	}
-	return res;
+	return (((v.x() - this->_x) * (v.x() - this->_x)) 
+				+ ((v.y() - this->_y) * (v.y() - this->_y)));
 }
 
 // mag
 template <class T>
 double vec2<T>::mag() const {
-	return vec<T>::mag();
+	return ::sqrt(vec2<T>::mag_sq());
 }
 
 template <class T>
@@ -519,6 +517,10 @@ template <class T>
 double vec2<T>::dist(vec2<T> const &v) const {
 	return vec2<T>::mag(v);
 }
+
+
+
+
 
 
 // pow

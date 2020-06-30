@@ -146,4 +146,5 @@ double vec<T>::mag() const {
 	return ::sqrt(vec<T>::mag_sq());
 }
 
+
 #endif

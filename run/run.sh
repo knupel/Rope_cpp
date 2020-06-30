@@ -7,5 +7,5 @@ clang++ -std=c++11 \
 ${path_test}main.cpp \
 ${path}*.cpp ${path}*.hpp \
 ${path_template}utils/*.hpp \
-&& ./a.out 100 \
+&& ./a.out 100 10 \
 && rm ${path}*.gch ${path_template}utils/*.gch

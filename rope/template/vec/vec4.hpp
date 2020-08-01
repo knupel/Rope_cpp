@@ -2,7 +2,7 @@
 # define VEC4_H
 /*
 * vec4
-* v 0.0.3
+* v 0.0.4
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL.
 */
@@ -495,6 +495,7 @@ public:
 	vec4 & rand(T const &max);
 	vec4 & rand(T const &min, T const &max);
 	vec4 & rand(vec4<T> const &min, vec4<T> const &max);
+	vec4 & rand(vec4<T> const &max);
 	vec4 & rand(T const &x_min, T const &y_min, T const &z_min, T const &w_min,
 						T const &x_max, T const &y_max, T const &z_max, T const &w_max);
 
@@ -502,6 +503,7 @@ public:
 	vec4 & rand(T const &max, std::default_random_engine &generator);
 	vec4 & rand(T const &min, T const &max, std::default_random_engine &generator);
 	vec4 & rand(vec4<T> const &min, vec4<T> const &max, std::default_random_engine &generator);
+	vec4 & rand(vec4<T> const &max, std::default_random_engine &generator);
 	vec4 & rand(T const &x_min, T const &y_min, T const &z_min, T const &w_min, 
 						T const &x_max, T const &y_max, T const &z_max, T const &w_max,
 						std::default_random_engine &generator);
@@ -980,8 +982,21 @@ vec4<T>	& vec4<T>::rand(vec4<T> const &min, vec4<T> const &max) {
 }
 
 template <class T>
+vec4<T>	& vec4<T>::rand(vec4<T> const &max) {
+	return rand(0, 0, 0, 0,
+							max.x(), max.y(), max.z(), max.w());
+}
+
+template <class T>
 vec4<T>	& vec4<T>::rand(vec4<T> const &min, vec4<T> const &max, std::default_random_engine &generator) {
 	return rand(min.x(), min.y(), min.z(), min.w(),
+							max.x(), max.y(), max.z(), max.w(),
+							generator);
+}
+
+template <class T>
+vec4<T>	& vec4<T>::rand(vec4<T> const &max, std::default_random_engine &generator) {
+	return rand(0, 0, 0, 0,
 							max.x(), max.y(), max.z(), max.w(),
 							generator);
 }
@@ -989,7 +1004,7 @@ vec4<T>	& vec4<T>::rand(vec4<T> const &min, vec4<T> const &max, std::default_ran
 //
 template <class T>
 vec4<T>	& vec4<T>::rand(T const &x_min, T const &y_min, T const &z_min, T const &w_min,
-											T const &x_max, T const &y_max, T const &z_max, T const &w_max) {
+												T const &x_max, T const &y_max, T const &z_max, T const &w_max) {
 	std::random_device seed;
 	std::default_random_engine generator(seed());
 	return rand(x_min, y_min, z_min, w_min,

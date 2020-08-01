@@ -2,7 +2,7 @@
 # define VEC3_H
 /*
 * vec3
-* v 0.0.3
+* v 0.0.4
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL.
 */
@@ -178,16 +178,18 @@ public:
 	vec3 & rand(T const &max);
 	vec3 & rand(T const &min, T const &max);
 	vec3 & rand(vec3<T> const &min, vec3<T> const &max);
+	vec3 & rand(vec3<T> const &max);
 	vec3 & rand(T const &x_min, T const &y_min, T const &z_min,
-						T const &x_max, T const &y_max, T const &z_max);
+							T const &x_max, T const &y_max, T const &z_max);
 
 	vec3 & rand(std::default_random_engine &generator);
 	vec3 & rand(T const &max, std::default_random_engine &generator);
 	vec3 & rand(T const &min, T const &max, std::default_random_engine &generator);
 	vec3 & rand(vec3<T> const &min, vec3<T> const &max, std::default_random_engine &generator);
+	vec3 & rand(vec3<T> const &max, std::default_random_engine &generator);
 	vec3 & rand(T const &x_min, T const &y_min, T const &z_min, 
-						T const &x_max, T const &y_max, T const &z_max,
-						std::default_random_engine &generator);
+							T const &x_max, T const &y_max, T const &z_max,
+							std::default_random_engine &generator);
 
 
 
@@ -656,8 +658,21 @@ vec3<T>	& vec3<T>::rand(vec3<T> const &min, vec3<T> const &max) {
 }
 
 template <class T>
+vec3<T>	& vec3<T>::rand(vec3<T> const &max) {
+	return rand(0, 0, 0, 
+							max.x(), max.y(), max.z());
+}
+
+template <class T>
 vec3<T>	& vec3<T>::rand(vec3<T> const &min, vec3<T> const &max, std::default_random_engine &generator) {
 	return rand(min.x(), min.y(), min.z(),
+							max.x(), max.y(), max.z(),
+							generator);
+}
+
+template <class T>
+vec3<T>	& vec3<T>::rand(vec3<T> const &max, std::default_random_engine &generator) {
+	return rand(0, 0, 0,
 							max.x(), max.y(), max.z(),
 							generator);
 }

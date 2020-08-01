@@ -59,7 +59,7 @@ int main() {
 	vec4<long double> ld_4(10);
 	vec4<double> d_4(10);
 
-	// random_test();
+	random_test();
 	dist_mag_test();
 
 

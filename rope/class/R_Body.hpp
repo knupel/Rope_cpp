@@ -1,6 +1,6 @@
 /**
 * R_BODY
-* v 0.1.1
+* v 0.2.0
 * 2020-2020
 */
 #ifndef R_BODY_H
@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include "../template/vec/vec3.hpp"
+#include "../template/math/r_geom.hpp"
 
 class R_Body {
 	public:
@@ -47,6 +48,9 @@ class R_Body {
 		bool follow(float x, float y, float z = 0);
 		bool follow(vec2<float> dst);
 		bool follow(vec3<float> dst);
+
+		bool follow_sphere(float lat, float lon, float alt);
+		bool follow_sphere(vec2<float> dst, float alt);
 
 		void size(float size);
 

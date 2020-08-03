@@ -108,6 +108,26 @@ bool R_Body::follow(vec3<float> dst) {
 }
 
 
+bool R_Body::follow_sphere(float lat, float lon, float alt) {
+	vec2<float> dst(lat,lon);
+	float dist = dist_sphere(this->pos(), dst, alt);
+	std::cout << "_speed << dist: " << _speed << " | " << dist << std::endl;
+	if(_speed < dist) {
+		vec2<float> translate = dst.dir(this->pos().xy()) * _speed;
+		this->translate(translate);
+		return true;
+	}
+	std::cout << "C'est faux et archi faux" << std::endl;
+	return false;
+}
+
+bool R_Body::follow_sphere(vec2<float> dst, float alt) {
+	return this->follow_sphere(dst.lat(), dst.lon(), alt);
+}
+
+
+
+
 
 void R_Body::size(float size) {
 	this->_size = size;

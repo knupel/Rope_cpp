@@ -17,6 +17,10 @@
 // #include <vector>
 // #include <limits>
 // #include <string>
+/**
+* math
+*/
+double dist_on_sphere(double lat_1, double long_1, double lat_2, double lon_2, double radius);
 
 
 // random declaration

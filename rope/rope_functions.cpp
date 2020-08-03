@@ -7,8 +7,6 @@
 
 #include "./rope_functions.hpp"
 
-
-
 /**
 * Random function to compute few sort or random result.
 * v 0.0.4

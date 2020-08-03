@@ -2,7 +2,7 @@
 # define VEC3_H
 /*
 * vec3
-* v 0.0.4
+* v 0.0.5
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL.
 */
@@ -44,6 +44,8 @@ public:
 	T x() const;	
 	T y() const;
 	T z() const;
+
+	T alt() const;
 
 	T min() const;	
 	T max() const;
@@ -320,6 +322,7 @@ vec3<T> & vec3<T>::x(T const &x) {
 	this->_x = x;
 	return *this;
 }
+
 template <class T>
 vec3<T> & vec3<T>::y(T const &y) {
 	this->_y = y;
@@ -331,6 +334,8 @@ vec3<T> & vec3<T>::z(T const &z) {
 	this->_z = z;
 	return *this;
 }
+
+
 
 // set min max
 template <class T>
@@ -417,6 +422,11 @@ T vec3<T>::z() const {
 	return this->_z;
 }
 
+template <class T>
+T vec3<T>::alt() const {
+	return this->_z;
+}
+
 // get min max
 template <class T>
 T vec3<T>::min() const {
@@ -436,7 +446,7 @@ T vec3<T>::red() const {
 
 template <class T>
 T vec3<T>::gre() const {
-	return this->_zy;
+	return this->_y;
 }
 
 template <class T>

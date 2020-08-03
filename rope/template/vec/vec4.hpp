@@ -770,7 +770,7 @@ T vec4<T>::red() const {
 
 template <class T>
 T vec4<T>::gre() const {
-	return this->_zy;
+	return this->_y;
 }
 
 template <class T>

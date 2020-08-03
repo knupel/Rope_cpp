@@ -1,4 +1,4 @@
-#include "./test_vec.hpp"
+#include "./header_vec.hpp"
 
 void dist_mag_test() {
 	vec2<int> ia(13,1);

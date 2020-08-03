@@ -1,5 +1,5 @@
-#ifndef TEST_VEC_H
-# define TEST_VEC_H
+#ifndef HEADER_VEC_H
+# define HEADER_VEC_H
 #pragma once
 
 
@@ -14,6 +14,7 @@
 
 void random_test();
 void dist_mag_test();
+void arguments_test();
 
 
 

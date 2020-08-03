@@ -3,7 +3,7 @@
 // don't need to include the previous vec.
 // because it's calling by cascade from vec4 to vec
 
-#include "./test_vec.hpp"
+#include "./header_vec.hpp"
 
 
 
@@ -25,6 +25,28 @@ void show_data(vec<T> &v) {
 
 int main() {
 	// set static warning to display info about Constructor and destructor
+	vec2<double>::warning(true);
+	vec2<float>::warning(true);
+	vec2<int>::warning(true);
+	vec3<double>::warning(true);
+	vec3<float>::warning(true);
+	vec3<int>::warning(true);
+	
+	arguments_test();
+	// random_test();
+	// dist_mag_test();
+
+	printf("num of instance vec2 int: %i\n", vec2<int>::get_instance());
+	printf("num of instance vec2 float: %i\n", vec2<float>::get_instance());
+	printf("num of instance vec2 double: %i\n", vec2<double>::get_instance());
+	printf("num of instance vec3 int: %i\n", vec3<int>::get_instance());
+	printf("num of instance vec3 float: %i\n", vec3<float>::get_instance());
+	printf("num of instance vec3 double: %i\n", vec3<double>::get_instance());
+}
+
+
+// int main() {	
+	// set static warning to display info about Constructor and destructor
 	// vec2<double>::warning(true);
 	// vec2<float>::warning(true);
 	// vec2<int>::warning(true);
@@ -36,31 +58,30 @@ int main() {
 	// vec2<double> b(1.23,3.14);
 
 
-	vec2<float> a(13.03f,1.0f);
-	vec2<float> b(1.23f,3.14f);
-	vec2<float> c(0.0f,0.0f);
-	vec2<float> d(2.0f,2.0f);
-	int i1 = 1;
-	int i2 = 2;
-	int i3 = 3;
-	float f1 = 100.3f;
-	float f2 = 32.5f;
-	float f3 = 8.5f;
-	double d1 = 100.3;
-	double d2 = 32.5;
-	double d3 = 8.5;
-	vec2<double> e(123,34);
-	vec2<double> f(13.5,-32.7);
+	// vec2<float> a(13.03f,1.0f);
+	// vec2<float> b(1.23f,3.14f);
+	// vec2<float> c(0.0f,0.0f);
+	// vec2<float> d(2.0f,2.0f);
+	// int i1 = 1;
+	// int i2 = 2;
+	// int i3 = 3;
+	// float f1 = 100.3f;
+	// float f2 = 32.5f;
+	// float f3 = 8.5f;
+	// double d1 = 100.3;
+	// double d2 = 32.5;
+	// double d3 = 8.5;
+	// vec2<double> e(123,34);
+	// vec2<double> f(13.5,-32.7);
 
-	vec3<double> a_3(0,1,0);
-	vec3<double> b_3(1,1,1);
-	vec3<float> f_3(d1,d2,200);
+	// vec3<double> a_3(0,1,0);
+	// vec3<double> b_3(1,1,1);
+	// vec3<float> f_3(d1,d2,200);
 
-	vec4<long double> ld_4(10);
-	vec4<double> d_4(10);
+	// vec4<long double> ld_4(10);
+	// vec4<double> d_4(10);
 
-	random_test();
-	dist_mag_test();
+
 
 
 
@@ -603,12 +624,12 @@ int main() {
 
 
 
-	printf("num of instance vec2 int: %i\n", vec2<int>::get_instance());
-	printf("num of instance vec2 float: %i\n", vec2<float>::get_instance());
-	printf("num of instance vec2 double: %i\n", vec2<double>::get_instance());
-	printf("num of instance vec3 int: %i\n", vec3<int>::get_instance());
-	printf("num of instance vec3 float: %i\n", vec3<float>::get_instance());
-	printf("num of instance vec3 double: %i\n", vec3<double>::get_instance());
+// 	printf("num of instance vec2 int: %i\n", vec2<int>::get_instance());
+// 	printf("num of instance vec2 float: %i\n", vec2<float>::get_instance());
+// 	printf("num of instance vec2 double: %i\n", vec2<double>::get_instance());
+// 	printf("num of instance vec3 int: %i\n", vec3<int>::get_instance());
+// 	printf("num of instance vec3 float: %i\n", vec3<float>::get_instance());
+// 	printf("num of instance vec3 double: %i\n", vec3<double>::get_instance());
 
-	return (0);
-}
+// 	return (0);
+// }

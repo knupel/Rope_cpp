@@ -2,7 +2,7 @@
 # define VEC2_H
 /*
 * vec2
-* v 0.0.4
+* v 0.0.5
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL
 */
@@ -38,6 +38,8 @@ public:
 	T y() const;
 	T min() const;	
 	T max() const;
+	T lat() const;	
+	T lon() const;
 	
 	vec2 copy() const;
 	T * array() const;
@@ -346,6 +348,16 @@ T vec2<T>::x() const {
 
 template <class T>
 T vec2<T>::y() const {
+	return this->_y;
+}
+
+template <class T>
+T vec2<T>::lat() const {
+	return this->_x;
+}
+
+template <class T>
+T vec2<T>::lon() const {
 	return this->_y;
 }
 

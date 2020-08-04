@@ -1,7 +1,7 @@
 /**
 * header
 * Rope math geom C++
-* v 0.0.3
+* v 0.0.4
 * 2020-2020
 * Rope C++ library adaptation in the same way of Rope from Processing
 * Rope mean ROmanesco Processing Environment at the beginning !!!
@@ -53,8 +53,13 @@ vec3<T> coord_sphere_math(T lat, T lon, T radius) {
 	return vec3<T>(x,y,z);
 }
 
+
+/**
+* orthodromy, loxodromy is the science to compute distance, position on Sphere.
+* very very complexe.
+*/
 template<typename T>
-T dist_sphere(T lat_1, T lon_1, T lat_2, T lon_2, T radius) {
+T dist_orthodromy(T lat_1, T lon_1, T lat_2, T lon_2, T radius) {
 	T u;
 	T v;
 	u = sin((lat_2 - lat_1) * 0.5);
@@ -62,10 +67,9 @@ T dist_sphere(T lat_1, T lon_1, T lat_2, T lon_2, T radius) {
 	return 2.0 * radius * asin(sqrt(u * u + cos(lat_1) * cos(lat_2) * v * v));
 }
 
-
 template<typename T>
-T dist_sphere(vec2<T> a, vec2<T> b, T radius) {
-	return dist_sphere(a.x(), a.y(), b.x(), b.x(), radius);
+T dist_orthodromy(vec2<T> a, vec2<T> b, T radius) {
+	return dist_orthodromy(a.x(), a.y(), b.x(), b.x(), radius);
 }
 
 

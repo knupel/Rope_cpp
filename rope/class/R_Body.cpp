@@ -53,6 +53,7 @@ void R_Body::z(float z) {
 	this->_z = z;
 }
 
+// set
 void R_Body::set(float x, float y, float z) {
 	this->_x = x;
 	this->_y = y;
@@ -70,7 +71,21 @@ void R_Body::set(vec3<float> pos) {
 	this->_z = pos.z();
 }
 
+// costume
+void R_Body::size(float size) {
+	this->_size = size;
+}
 
+// geom
+void R_Body::speed(float speed) {
+	this->_speed = speed;
+}
+
+void R_Body::dir(float dir) {
+	this->_dir = dir;
+}
+
+// translate
 void R_Body::translate(float x, float y, float z) {
 	this->_x += x;
 	this->_y += y;
@@ -88,12 +103,13 @@ void R_Body::translate(vec3<float> pos) {
 	this->_z += pos.z();
 }
 
+// follow
 bool R_Body::follow(float x, float y, float z) {
 	vec3<float> dst(x,y,z);
 	float dist = this->pos().dist(dst);
 	if(_speed < dist) {
-		vec3<float> translate = dst.dir(this->pos()) * _speed;
-		this->translate(translate);
+		vec3<float> offset = dst.dir(this->pos()) * _speed;
+		this->translate(offset);
 		return true;
 	}
 	return false;
@@ -107,39 +123,43 @@ bool R_Body::follow(vec3<float> dst) {
 	return this->follow(dst.x(), dst.y(), dst.z());
 }
 
+/**
+* orthodromy, loxodromy is the science to compute distance, position on Sphere.
+* the compute of distance on spherical surface and calcul the displacement with a particular speed is too hard for me.
+* too much buggy, need people have mathematical spherical brain to solve the problem not me :(
+*
+* this algo is not finish and don't work
+*
+*/
+bool R_Body::follow_orthodromy(float lat, float lon, float alt) {
+	vec3<float> dst(lat, lon, alt);
+	float dist = dist_orthodromy(this->pos().xy(), dst.xy(), alt);
+	std::cout << "distance restante: " << dist << std::endl;
+	if(dist > (alt * _speed)) {
+		vec3<float> offset = dst.dir(this->pos()) * _speed;
+		this->translate(offset);
+	// if(dist > 0.001) {
+	// if(_speed < dist) {
+		// vec2<float> offset = dst.dir(this->pos().xy()) * _speed;
+		// compute new position
 
-bool R_Body::follow_sphere(float lat, float lon, float alt) {
-	vec2<float> dst(lat,lon);
-	float dist = dist_sphere(this->pos(), dst, alt);
-	std::cout << "_speed << dist: " << _speed << " | " << dist << std::endl;
-	if(_speed < dist) {
-		vec2<float> translate = dst.dir(this->pos().xy()) * _speed;
-		this->translate(translate);
+		// this->translate(offset);
 		return true;
 	}
-	std::cout << "C'est faux et archi faux" << std::endl;
 	return false;
 }
 
-bool R_Body::follow_sphere(vec2<float> dst, float alt) {
-	return this->follow_sphere(dst.lat(), dst.lon(), alt);
+bool R_Body::follow_orthodromy(vec2<float> dst, float alt) {
+	return this->follow_orthodromy(dst.lat(), dst.lon(), alt);
 }
 
 
 
 
 
-void R_Body::size(float size) {
-	this->_size = size;
-}
 
-void R_Body::speed(float speed) {
-	this->_speed = speed;
-}
 
-void R_Body::dir(float dir) {
-	this->_dir = dir;
-}
+
 
 
 // get

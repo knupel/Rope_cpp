@@ -57,4 +57,8 @@ void random_test() {
   long double ld_min = std::numeric_limits<long double>::min();
   long double ld_max = std::numeric_limits<long double>::max();
 	std::cout << "random_long_double(ld_min, ld_max, generator): " << random_long_double(ld_min, ld_max, generator) << std::endl;
+
+	for(int i = 0 ; i < 1000 ; i++) {
+		std::cout << "random_int(10): " << random_int(10) << std::endl;
+	}
 }

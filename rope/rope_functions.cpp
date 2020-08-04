@@ -13,6 +13,12 @@
 * http://www.cplusplus.com/reference/random/uniform_real_distribution/
 */
 // rand float
+float random(float max) {
+	std::random_device seed;
+	std::default_random_engine generator(seed());
+	return random(0, max, generator);
+}
+
 float random(float min, float max) {
 	std::random_device seed;
 	std::default_random_engine generator(seed());
@@ -25,6 +31,12 @@ float random(float min, float max, std::default_random_engine &generator) {
 }
 
 // rand double
+double random_double(double max) {
+	std::random_device seed;
+	std::default_random_engine generator(seed());
+	return random_double(0,max,generator);
+}
+
 double random_double(double min, double max) {
 	std::random_device seed;
 	std::default_random_engine generator(seed());
@@ -37,6 +49,12 @@ double random_double(double min, double max, std::default_random_engine &generat
 }
 
 //rand long double
+long double random_long_double(long double max) {
+	std::random_device seed;
+	std::default_random_engine generator(seed());
+	return random_long_double(0,max,generator);
+}
+
 long double random_long_double(long double min, long double max) {
 	std::random_device seed;
 	std::default_random_engine generator(seed());
@@ -62,6 +80,12 @@ bool random_bool(std::default_random_engine &generator) {
 }
 
 // rand char
+char random_char(char max) {
+	std::random_device seed;
+	std::default_random_engine generator(seed());
+	return random_char('a',max,generator);
+}
+
 char random_char(char min, char max) {
 	std::random_device seed;
 	std::default_random_engine generator(seed());
@@ -74,6 +98,12 @@ char random_char(char min, char max, std::default_random_engine &generator) {
 }
 
 // rand int
+int random_int(int max) {
+	std::random_device seed;
+	std::default_random_engine generator(seed());
+	return random_int(0,max,generator);
+}
+
 int random_int(int min, int max) {
 	std::random_device seed;
 	std::default_random_engine generator(seed());
@@ -86,6 +116,12 @@ int random_int(int min, int max, std::default_random_engine &generator) {
 }
 
 // random long
+long random_long(long max) {
+	std::random_device seed;
+	std::default_random_engine generator(seed());
+	return random_long(0,max,generator);
+}
+
 long random_long(long min, long max) {
 	std::random_device seed;
 	std::default_random_engine generator(seed());
@@ -99,6 +135,12 @@ long random_long(long min, long max, std::default_random_engine &generator) {
 
 
 // rand normal
+double random_normal(double max) {
+	std::random_device seed;
+	std::default_random_engine generator(seed());
+	return random_normal(0,max,generator);
+}
+
 double random_normal(double min, double max) {
 	std::random_device seed;
 	std::default_random_engine generator(seed());

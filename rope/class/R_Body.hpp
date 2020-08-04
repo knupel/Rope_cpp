@@ -1,6 +1,6 @@
 /**
 * R_BODY
-* v 0.2.0
+* v 0.2.1
 * 2020-2020
 */
 #ifndef R_BODY_H
@@ -28,8 +28,9 @@ class R_Body {
 		float z() const;
 		vec3<float> pos() const;
 
+		// costume
 		float size() const;
-
+		// geom
 		float dir() const;
 		float speed() const;
 
@@ -41,6 +42,11 @@ class R_Body {
 		void set(vec2<float> pos);
 		void set(vec3<float> pos);
 
+		void size(float size);
+
+		void dir(float dir);
+		void speed(float speed);
+
 		void translate(float x, float y, float z = 0);
 		void translate(vec2<float> value);
 		void translate(vec3<float> value);
@@ -49,13 +55,9 @@ class R_Body {
 		bool follow(vec2<float> dst);
 		bool follow(vec3<float> dst);
 
-		bool follow_sphere(float lat, float lon, float alt);
-		bool follow_sphere(vec2<float> dst, float alt);
-
-		void size(float size);
-
-		void dir(float dir);
-		void speed(float speed);
+		// follow on spherical surface >>> don't work
+		bool follow_orthodromy(float lat, float lon, float alt);
+		bool follow_orthodromy(vec2<float> dst, float alt);
 
 
 

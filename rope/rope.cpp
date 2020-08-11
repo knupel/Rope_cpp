@@ -1,6 +1,6 @@
 /**
 * ROPE CLASS
-* v 0.1.4
+* v 0.1.5
 * 2020-2020
 */
 #include "rope.hpp"
@@ -25,9 +25,12 @@ Rope::~Rope() {
 
 
 /**
-* Rope::colour 
+* Rope::color 
 * adaptation from Processing PGraphics.java part of core
-* v 0.0.5
+* and an adaptation of this code
+* https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-bot
+* to catch hsb value from int Rope::rgb_to_hsb_calc()
+* v 0.1.0
 */
 
 // color
@@ -198,23 +201,6 @@ void Rope::colorCalcARGB(int &argb, float &alpha) {
 	calcAlpha = (calcAi != 255);
 }
 
-
-float Rope::red() const {
-	return calcR * colorModeX;
-}
-
-float Rope::gre() const {
-	return calcG * colorModeY;
-}
-
-float Rope::blu() const {
-	return calcB * colorModeZ;
-}
-
-float Rope::alp() const {
-	return calcA * colorModeA;
-}
-
 /**
 * colorMode
 */
@@ -257,6 +243,74 @@ void Rope::colorMode(int mode) {
 	_colorMode = mode;
 }
 
+float Rope::red() const {
+	return calcR * colorModeX;
+}
+
+float Rope::gre() const {
+	return calcG * colorModeY;
+}
+
+float Rope::blu() const {
+	return calcB * colorModeZ;
+}
+
+float Rope::alp() const {
+	return calcA * colorModeA;
+}
+
+float Rope::hue() const {
+	return rgb_to_hsb_calc().hue() * colorModeX;
+}
+
+float Rope::sat() const {
+	return rgb_to_hsb_calc().sat() * colorModeY;
+}
+
+float Rope::bri() const {
+	return rgb_to_hsb_calc().bri() * colorModeZ;
+}
+
+// https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-bot
+vec3<float> Rope::rgb_to_hsb_calc() const {
+	vec3<float>	temp;
+	float	min, max, delta;
+
+	min = calcR < calcG ? calcR : calcG;
+	min = min  < calcB ? min : calcB;
+
+	max = calcR > calcG ? calcR : calcG;
+	max = max  > calcB ? max  : calcB;
+
+	temp.bri(max); // v
+	delta = max - min;
+	if(delta < 0.000001f) {
+		temp.sat(0.0f);
+		temp.hue(0.0f); // undefined, maybe nan?
+		return temp;
+	}
+
+	if(max > 0.0f) { // NOTE: if Max is == 0, this divide would cause a crash
+		temp.sat(delta / max);                  // s
+	} else {           
+		temp.sat(0.0f);
+		temp.hue(NAN);	// its now undefined
+		return temp;
+	}
+
+	if(calcR >= max) {	// > is bogus, just keeps compilor happy
+		temp.hue((calcG - calcB) / delta);	// between yellow & magenta
+	} else if(calcG >= max) {
+		temp.hue(2.0f + (calcB - calcR) / delta);	// between cyan & yellow
+	} else {
+		temp.hue(4.0f + (calcR - calcG) / delta);	// between magenta & cyan
+	}
+	temp.hue(temp.hue() * 0.16666666f);
+	if(temp.hue() < 0.0f) {
+		temp.hue(temp.hue() + 1.0f);
+	}
+	return temp;
+}
 
 
 

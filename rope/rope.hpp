@@ -20,6 +20,7 @@
 
 #include "./template/utils/r_utils.hpp"
 #include "./class/R_Lexicon.hpp"
+#include "./template/vec/vec3.hpp"
 
 // class Rope
 class Rope : public R_Lexicon {
@@ -37,8 +38,6 @@ public:
 
 	virtual int instance() const;
 
-
-
 	// color
 	int color(int c);
 	int color(float gray);
@@ -50,6 +49,11 @@ public:
 	float red() const;
 	float gre() const;
 	float blu() const;
+
+	float hue() const;
+	float sat() const;
+	float bri() const;
+
 	float alp() const;
 
 	int colorMode();
@@ -60,12 +64,11 @@ public:
 	void colorMode(int mode);
 
 
-
-	// color calc
 protected:
 	bool calcAlpha = true;
 
 	int calcColor = 0;
+
 	int calcAi = 0;
 	int calcRi = 0;
 	int calcGi = 0;
@@ -85,6 +88,8 @@ protected:
 
 	// color calc ARGB
 	void colorCalcARGB(int &argb, float &alpha);
+
+	vec3<float>	rgb_to_hsb_calc() const;
 };
 
 

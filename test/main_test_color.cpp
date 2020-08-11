@@ -9,11 +9,12 @@ int main() {
 	Rope r;
   r.colorMode(r.RGB,255);
 	std::cout << "colorMode(): " << r.colorMode() << std::endl;
-	r.color(r.NOISETTE);
+	r.color(r.AZUR);
 	// r.color(255,125,0);
-	std::cout << "r.NOISETTE int: " << r.NOISETTE  << std::endl;
-	std::cout << "r.NOISETTE split RGB " << r.red() << ", " <<  r.gre() << ", " << r.blu()  << std::endl;
-	std::cout << "r.NOISETTE split HSB " << r.hue() << ", " <<  r.sat() << ", " << r.bri()  << std::endl;
+	r.colorMode(r.HSB,1);
+	std::cout << "r.AZUR int: " << r.AZUR  << std::endl;
+	std::cout << "r.AZUR split RGB " << r.red() << ", " <<  r.gre() << ", " << r.blu()  << std::endl;
+	std::cout << "r.AZUR split HSB " << r.hue() << ", " <<  r.sat() << ", " << r.bri()  << std::endl;
 
 
 	// r.colorMode(r.RGB,1);

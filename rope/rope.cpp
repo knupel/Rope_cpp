@@ -1,6 +1,6 @@
 /**
 * ROPE CLASS
-* v 0.1.5
+* v 0.1.6
 * 2020-2020
 */
 #include "rope.hpp"
@@ -241,6 +241,11 @@ void Rope::colorMode(int mode, float arg) {
 
 void Rope::colorMode(int mode) {
 	_colorMode = mode;
+}
+
+
+int Rope::color() const {
+	return calcColor;
 }
 
 float Rope::red() const {

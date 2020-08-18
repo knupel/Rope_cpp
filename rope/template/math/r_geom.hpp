@@ -1,7 +1,7 @@
 /**
 * header
 * Rope math geom C++
-* v 0.0.5
+* v 0.0.6
 * 2020-2020
 * Rope C++ library adaptation in the same way of Rope from Processing
 * Rope mean ROmanesco Processing Environment at the beginning !!!
@@ -50,6 +50,7 @@ vec2<T> coord_polar(T dir, T radius) {
 	return (vec2<T>(sin(dir),cos(dir)) * radius);
 }
 
+
 // https://fr.wikipedia.org/wiki/Coordonn%C3%A9es_polaires
 template<typename T>
 vec3<T> coord_sphere_math(T lat, T lon) {
@@ -78,6 +79,42 @@ vec3<T> coord_sphere_math(T lat, T lon, T radius) {
 	return vec3<T>(x,y,z);
 }
 
+template<typename T>
+vec3<T> to_cartesian(T lat, T lon, T radius) {
+	double tau = 2.0 *M_PI;
+	double theta = fmod(lon,tau);
+	double phi = fmod(lat,tau);
+
+	T x = static_cast<T>(radius * sin(theta) * cos(phi));
+	T y = static_cast<T>(radius * sin(theta) * sin(phi));
+	T z = static_cast<T>(radius * cos(theta));
+
+	return vec3<T>(x,y,z);
+}
+
+template<typename T>
+vec3<T> to_cartesian(T lat, T lon) {
+	double tau = 2.0 *M_PI;
+	double theta = fmod(lon,tau);
+	double phi = fmod(lat,tau);
+
+	T x = static_cast<T>(sin(theta) * cos(phi));
+	T y = static_cast<T>(sin(theta) * sin(phi));
+	T z = static_cast<T>(cos(theta));
+
+	return vec3<T>(x,y,z);
+}
+
+template<typename T>
+vec2<T> to_polar(T x, T y, T z) {
+	double r = sqrt(x * x + y * y + z * z);
+	double theta = atan2(y, x);
+	double phi = acos(z / r);
+
+	T lat = static_cast<T>(theta);
+	T lon = static_cast<T>(phi);
+	return vec2<T>(lat,lon);
+}
 
 /**
 * orthodromy, loxodromy is the science to compute distance, position on Sphere.

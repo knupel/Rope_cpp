@@ -3,41 +3,65 @@
 #include <iostream>
 #include <cstdio>
 
+void get_colorMode();
+void get_color_value();
+void set_color();
 
 
 int main() {
+	get_color_value();
+	set_color();
+	get_colorMode();
+}
+
+
+
+
+
+
+
+
+void get_colorMode() {
+	Rope r;
+	std::cout << "colorMode(): " << r.colorMode() << std::endl;
+	std::cout << r.colorModeX << " | " << r.colorModeX << " | " << r.colorModeX << " | " << r.colorModeX << " | " << std::endl;
+}
+
+
+void set_color() {
+	Rope r;
+	int arg = r.ROUGE;
+	r.color(arg);
+	float gray = 23.0f;
+	r.color(gray);
+	float alpha = 34.0;
+	r.color(gray, alpha);
+	float red = 255.0f;
+	float green = 0.0f;
+	float blue = 0.0f;
+	r.color(red,green,blue);
+	r.color(red,green,blue,alpha);
+	// by default the colorMode is r.colorMode(r.RGB,255,255,255,255);
+	// you can set like you want with only condition it's positive value.
+	r.colorMode(r.HSB,360,100,100,100);
+	float hue = 0.0f;
+	float saturation = 100.0f;
+	float brightness = 100.0f;
+	r.color(hue,saturation,brightness);
+	r.color(hue,saturation,brightness,alpha);
+}
+
+
+void get_color_value() {
 	Rope r;
   r.colorMode(r.RGB,255);
-	std::cout << "colorMode(): " << r.colorMode() << std::endl;
+	
 	r.color(r.AZUR);
 	// r.color(255,125,0);
 	r.colorMode(r.HSB,1);
-	std::cout << "r.AZUR int: " << r.AZUR  << std::endl;
+	std::cout << "r.AZUR: " << r.AZUR  << std::endl;
+	std::cout << "r.color():" << r.color() << std::endl;
 	std::cout << "r.AZUR split RGB " << r.red() << ", " <<  r.gre() << ", " << r.blu()  << std::endl;
 	std::cout << "r.AZUR split HSB " << r.hue() << ", " <<  r.sat() << ", " << r.bri()  << std::endl;
 
-
-	// r.colorMode(r.RGB,1);
-	// rgb a;
-	// a.r = r.red();
-	// a.g = r.gre();
-	// a.b = r.blu();
-	// std::cout << "orange split HSB: " <<  rgb_to_hsb(a).h << ", " <<  rgb_to_hsb(a).s << ", " << rgb_to_hsb(a).b  << std::endl;
-	// hsb b;
-	// b.h = 180;
-	// b.s = 1.0;
-	// b.b = 0.2;
-	// std::cout << "hsb b split to RGB: " <<  hsb_to_rgb(b).r << ", " <<  hsb_to_rgb(b).g << ", " << hsb_to_rgb(b).b  << std::endl;
-	// r.colorMode(r.HSB,1);
-
-
-	std::cout << "r.colorModeA:" << r.colorModeA << std::endl;
-
-	// int colour = rope.color(255,0,0);
-	int colour = r.color(255,255,0);
-	std::cout << "colorMode(): " << r.colorMode() << std::endl;
-	r.colorMode(r.HSB,1,1,1,1);
-	std::cout << "colorMode(): " << r.colorMode() << std::endl;
-	std::cout << "colour: " << colour << std::endl;
-	std::cout << "rgba: " << r.red() <<  ", " << r.gre() <<  ", " << r.blu() <<  ", " << r.alp() << std::endl;
 }

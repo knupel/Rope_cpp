@@ -1,14 +1,14 @@
 /**
 * R_P5
 * 2020-2020
-* v 0.0.2
+* v 0.1.0
 */
 
 struct R_P5 {
-	float width;
-	float height;
-	float mouse_x;
-	float mouse_y;
-	bool mouse_pressed;
-	int frame_count;
+	int width;
+	int height;
+	int mouseX;
+	int mouseY;
+	bool mousePressed;
+	int frameCount;
 };

@@ -1,6 +1,6 @@
 /**
 * Rope Lexicon
-* v 0.0.3
+* v 0.1.0
 * 2020-2020
 */
 
@@ -9,10 +9,6 @@
 
 class R_Lexicon {
 public:
-	virtual int instance() const = 0;
-
-	int _instance;
-
 	enum Constants {
 		RGB = 1,
 		HSB = 3,

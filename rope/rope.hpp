@@ -1,6 +1,6 @@
 /**
 * Rope C++
-* v 0.0.9
+* v 0.1.0
 * 2020-2020
 * Rope C++ library adaptation in the same way of Rope from Processing
 * Rope mean ROmanesco Processing Environment at the beginning !!!
@@ -22,11 +22,19 @@
 #include "./class/R_Lexicon.hpp"
 #include "./template/vec/vec3.hpp"
 
-// class Rope
+// class Singleton Rope
 class Rope : public R_Lexicon {
-public:
+private:
+	static Rope *instance;
 	Rope();
-	~Rope();
+public:
+	static Rope *get_instance() {
+		if (!instance) {
+			instance = new Rope;
+		}
+		return instance;
+	}
+	
 
 
 	bool colorModeScale; // = true;
@@ -36,7 +44,6 @@ public:
 	float colorModeZ = 255.0f;
 	int _colorMode = 1;
 
-	virtual int instance() const;
 
 	// color
 	int color(int c);

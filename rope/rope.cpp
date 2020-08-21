@@ -1,29 +1,13 @@
 /**
 * ROPE CLASS
-* v 0.1.6
+* v 0.2.0
 * 2020-2020
 */
 #include "rope.hpp"
 
-// instance
-int Rope::instance() const{
-	return _instance;
-}
-
 Rope::Rope() {
-	std::cout << "Rope Constructor" << std::endl;
-	Rope::_instance++;
 	return;
 }
-
-Rope::~Rope() {
-	std::cout << "Rope Destructor" << std::endl;
-	Rope::_instance--;
-	return;
-}
-
-
-
 /**
 * Rope::color 
 * adaptation from Processing PGraphics.java part of core

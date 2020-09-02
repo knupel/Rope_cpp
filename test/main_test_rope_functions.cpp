@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <cstdio>
+#include <limits>
 
 void random_test();
 void random_fast_test();
@@ -17,19 +18,31 @@ int main() {
 
 
 void random_fast_test() {
-	uint32_t seed = random_int(UINT_MAX);
-	// 	uint32_t x = random_int(UINT_MAX);
-	// uint32_t y = random_int(UINT_MAX);
-	// uint32_t z = random_int(UINT_MAX);
-	// uint32_t w = random_int(UINT_MAX);
-	// vec4<uint32_t> seed4(x,y,z,w);
-	vec4<uint32_t> seed4;
-	seed4.rand(UINT_MAX);
-	// seed4.rand(12);
-	std::cout << "seed4: " << seed4 << std::endl; 
-	std::cout << " random_fast_128(seed): " << random_fast_128(seed4) << std::endl;
-	std::cout << " random_fast_64(seed): " << random_fast_64(seed) << std::endl;
-	std::cout << " random_fast_32(seed): " << random_fast_32(seed) << std::endl;
+	int iter = 10;
+	float sum = 0;
+			uint32_t seed = random_int(UINT_MAX);
+		vec4<uint32_t> seed4;
+		seed4.rand(UINT_MAX);
+	for(int i = 0 ; i < iter ; i++) {
+		std::cout << " random_fast_128(seed): " << random_fast_128(seed4) << std::endl;
+		float res = random_fast_128(seed4, -10, 10);
+		std::cout << " random_fast_128(seed, -10, 10): " << res << std::endl;
+		sum += res;
+		std::cout << " random_fast_32(seed): " << random_fast_32(seed) << std::endl;
+		std::cout << " random_fast_32(seed, 0, 1000): " << random_fast_32(seed, 0,1000) << std::endl;
+		std::cout << " random_fast_64(seed): " << random_fast_64(seed) << std::endl;
+		double d_min = std::numeric_limits<double>::lowest();
+		double d_max = std::numeric_limits<double>::max();
+		float f_min = std::numeric_limits<float>::lowest();
+		float f_max = std::numeric_limits<float>::max();
+		std::cout << " random_fast_64(seed,f_min,f_max): " << random_fast_64(seed,f_min,f_max) << std::endl;
+		std::cout << " random_fast_64(seed,d_min,d_max): " << random_fast_64(seed,d_min,d_max) << std::endl;
+		// std::cout << " random_fast_64(seed,-DBL_MAX,DBL_MAX): " << random_fast_64(seed,-DBL_MAX,DBL_MAX) << std::endl;
+
+	}
+	std::cout << "average: " << sum / iter << std::endl;
+
+
 }
 
 

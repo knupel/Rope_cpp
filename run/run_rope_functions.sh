@@ -8,7 +8,7 @@ ${path_test}main_test_rope_functions.cpp \
 ${path}*.cpp ${path}*.hpp \
 ${path_function}*.cpp ${path_function}*.hpp \
 ${path_template}utils/*.hpp \
-&& ./a.out 100 100 \
+&& ./a.out \
 && rm ${path}*.gch ${path_template}utils/*.gch ${path_function}/*.gch
 
 

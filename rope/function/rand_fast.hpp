@@ -16,10 +16,16 @@
 
 #include "../template/vec/vec4.hpp"
 
-
-// random declaration
+float random_fast_128(vec4<uint32_t> &seed, float max);
+float random_fast_128(vec4<uint32_t> &seed, float min, float max);
 uint32_t random_fast_128(vec4<uint32_t> &seed);
-uint64_t random_fast_64(uint32_t state);
-uint32_t random_fast_32(uint32_t state);
+
+float random_fast_32(uint32_t seed, float max);
+float random_fast_32(uint32_t seed, float min, float max);
+uint32_t random_fast_32(uint32_t seed);
+
+double random_fast_64(uint32_t seed, double max);
+double random_fast_64(uint32_t seed, double min, double max);
+uint64_t random_fast_64(uint32_t seed);
 
 #endif

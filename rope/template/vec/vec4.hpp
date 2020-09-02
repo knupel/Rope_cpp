@@ -2,7 +2,7 @@
 # define VEC4_H
 /*
 * vec4
-* v 0.0.4
+* v 0.0.6
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL.
 */
@@ -1018,14 +1018,27 @@ vec4<T>	& vec4<T>::rand(T const &x_min, T const &y_min, T const &z_min, T const 
 											T const &x_max, T const &y_max, T const &z_max, T const &w_max,
 											std::default_random_engine &generator) {
 	switch(vec<T>::get_type()) {
-				case 'c':
-		if(std::is_same<T, char>::value) {
+		case 'c':
+			if(std::is_same<T, char>::value) {
 				this->x(random_char(static_cast<char>(x_min), static_cast<char>(x_max), generator));
 				this->y(random_char(static_cast<char>(x_min), static_cast<char>(x_max), generator));
 				this->z(random_char(static_cast<char>(z_min), static_cast<char>(z_max), generator));
 				this->w(random_char(static_cast<char>(w_min), static_cast<char>(w_max), generator));
 			}
+			if(std::is_same<T, uint8_t>::value) {
+				this->x(random_char(static_cast<uint8_t>(x_min), static_cast<uint8_t>(x_max), generator));
+				this->y(random_char(static_cast<uint8_t>(x_min), static_cast<uint8_t>(x_max), generator));
+				this->z(random_char(static_cast<uint8_t>(z_min), static_cast<uint8_t>(z_max), generator));
+				this->w(random_char(static_cast<uint8_t>(w_min), static_cast<uint8_t>(w_max), generator));
+			}
+			if(std::is_same<T, unsigned char>::value) {
+				this->x(random_char(static_cast<unsigned char>(x_min), static_cast<unsigned char>(x_max), generator));
+				this->y(random_char(static_cast<unsigned char>(x_min), static_cast<unsigned char>(x_max), generator));
+				this->z(random_char(static_cast<unsigned char>(z_min), static_cast<unsigned char>(z_max), generator));
+				this->w(random_char(static_cast<unsigned char>(w_min), static_cast<unsigned char>(w_max), generator));
+			}
 			break;
+
 		case 'b':
 			if(std::is_same<T, bool>::value) {
 				this->x(random_bool(generator));
@@ -1034,6 +1047,7 @@ vec4<T>	& vec4<T>::rand(T const &x_min, T const &y_min, T const &z_min, T const 
 				this->w(random_bool(generator));
 			}
 			break;
+
 		case 's':
 			if(std::is_same<T, short>::value) {
 				this->x(random_int(x_min, x_max, generator));
@@ -1041,7 +1055,20 @@ vec4<T>	& vec4<T>::rand(T const &x_min, T const &y_min, T const &z_min, T const 
 				this->z(random_int(z_min, z_max, generator));
 				this->w(random_int(w_min, w_max, generator));
 			}
+			if(std::is_same<T, uint16_t>::value) {
+				this->x(random_int(x_min, x_max, generator));
+				this->y(random_int(y_min, y_max, generator));
+				this->z(random_int(z_min, z_max, generator));
+				this->w(random_int(w_min, w_max, generator));
+			}
+			if(std::is_same<T, unsigned short>::value) {
+				this->x(random_int(x_min, x_max, generator));
+				this->y(random_int(y_min, y_max, generator));
+				this->z(random_int(z_min, z_max, generator));
+				this->w(random_int(w_min, w_max, generator));
+			}
 			break;
+
 		case 'i':
 			if(std::is_same<T, int>::value) {
 				this->x(random_int(x_min, x_max, generator));
@@ -1049,7 +1076,20 @@ vec4<T>	& vec4<T>::rand(T const &x_min, T const &y_min, T const &z_min, T const 
 				this->z(random_int(z_min, z_max, generator));
 				this->w(random_int(w_min, w_max, generator));
 			}
+			if(std::is_same<T, uint32_t>::value) {
+				this->x(random_int(x_min, x_max, generator));
+				this->y(random_int(y_min, y_max, generator));
+				this->z(random_int(z_min, z_max, generator));
+				this->w(random_int(w_min, w_max, generator));
+			}
+			if(std::is_same<T, unsigned int>::value) {
+				this->x(random_int(x_min, x_max, generator));
+				this->y(random_int(y_min, y_max, generator));
+				this->z(random_int(z_min, z_max, generator));
+				this->w(random_int(w_min, w_max, generator));
+			}
 			break;
+
 		case 'l':
 			if(std::is_same<T, long>::value) {
 				this->x(random_long(x_min, x_max, generator));
@@ -1057,7 +1097,20 @@ vec4<T>	& vec4<T>::rand(T const &x_min, T const &y_min, T const &z_min, T const 
 				this->z(random_long(z_min, z_max, generator));
 				this->w(random_long(w_min, w_max, generator));
 			}
+			if(std::is_same<T, uint64_t>::value) {
+				this->x(random_long(x_min, x_max, generator));
+				this->y(random_long(y_min, y_max, generator));
+				this->z(random_long(z_min, z_max, generator));
+				this->w(random_long(w_min, w_max, generator));
+			}
+			if(std::is_same<T, unsigned long>::value) {
+				this->x(random_long(x_min, x_max, generator));
+				this->y(random_long(y_min, y_max, generator));
+				this->z(random_long(z_min, z_max, generator));
+				this->w(random_long(w_min, w_max, generator));
+			}
 			break;
+
 		case 'f':
 			if(std::is_same<T, float>::value) {
 				this->x(random(x_min, x_max, generator));
@@ -1083,7 +1136,7 @@ vec4<T>	& vec4<T>::rand(T const &x_min, T const &y_min, T const &z_min, T const 
 			}
 			break;
 		default:
-			std::cout << "vec4<T>::rand(); wait <T arg> like bool, char, int, float, double" << std::endl;
+			std::cout << "vec4<T>::rand() wait <T arg> like bool, char, int, float, double" << std::endl;
 			abort();
 	}
 	return *this;

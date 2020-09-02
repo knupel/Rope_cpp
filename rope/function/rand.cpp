@@ -1,18 +1,24 @@
 /**
-* ROPE FUNCTIONS
-* v 0.0.2
+* RANDOM CLASSIC
+* this random use the random c++ include
+* v 0.1.0
 * 2020-2020
 */
 
 
-#include "./rope_functions.hpp"
+#include "./rand.hpp"
+
 
 /**
+* RANDOM
+*/
+/**
 * Random function to compute few sort or random result.
-* v 0.0.4
+* v 0.1.0
 * http://www.cplusplus.com/reference/random/uniform_real_distribution/
 */
 // rand float
+
 float random(float max) {
 	std::random_device seed;
 	std::default_random_engine generator(seed());

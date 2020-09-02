@@ -4,7 +4,7 @@
 #pragma once
 /*
 * vec
-* v 0.1.0
+* v 0.1.1
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL
 */
@@ -14,7 +14,7 @@
 #include <vector>
 #include <string>
 
-#include "../../rope_functions.hpp"// 
+#include "../../function/rand.hpp"
 #include "../utils/r_utils.hpp"
 
 template <class T>
@@ -50,15 +50,36 @@ vec<T>::vec() {
 	// set type
 	if(std::is_same<T, char>::value) {
 		type = 'c';
-	} else if(std::is_same<T, bool>::value) {
+	} else if(std::is_same<T, uint8_t>::value) {
+		type = 'c';
+	} else if(std::is_same<T, unsigned char>::value) {
+		type = 'c';
+	} 
+		else if(std::is_same<T, bool>::value) {
 		type = 'b';
-	} else if(std::is_same<T, short>::value) {
+	} 
+		else if(std::is_same<T, short>::value) {
 		type = 's';
-	} else if(std::is_same<T, int>::value) {
+	} else if(std::is_same<T, uint16_t>::value) {
+		type = 's';
+	} else if(std::is_same<T, unsigned short>::value) {
+		type = 's';
+	} 
+		else if(std::is_same<T, int>::value) {
 		type = 'i';
-	}  else if(std::is_same<T, long>::value) {
+	} else if(std::is_same<T, uint32_t>::value) {
+		type = 'i';
+	} else if(std::is_same<T, unsigned int>::value) {
+		type = 'i';
+	} 
+		else if(std::is_same<T, long>::value) {
 		type = 'l';
-	}  else if(std::is_same<T, float>::value) {
+	} else if(std::is_same<T, uint64_t>::value) {
+		type = 'l';
+	} else if(std::is_same<T, unsigned long>::value) {
+		type = 'l';
+	}
+		else if(std::is_same<T, float>::value) {
 		type = 'f';
 	} else if(std::is_same<T, double>::value) {
 		type = 'd';

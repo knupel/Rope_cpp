@@ -2,7 +2,7 @@
 # define VEC2_H
 /*
 * vec2
-* v 0.0.5
+* v 0.0.7
 * 2020-2020
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL
 */
@@ -743,41 +743,77 @@ vec2<T>	& vec2<T>::rand(T const &x_min, T const &y_min,
 											std::default_random_engine &generator) {
 	switch(vec<T>::get_type()) {
 		case 'c':
-		if(std::is_same<T, char>::value) {
+			if(std::is_same<T, char>::value) {
 				this->x(random_char(static_cast<char>(x_min), static_cast<char>(x_max), generator));
 				this->y(random_char(static_cast<char>(x_min), static_cast<char>(x_max), generator));
 			}
+			if(std::is_same<T, uint8_t>::value) {
+				this->x(random_char(static_cast<uint8_t>(x_min), static_cast<uint8_t>(x_max), generator));
+				this->y(random_char(static_cast<uint8_t>(x_min), static_cast<uint8_t>(x_max), generator));
+			}
+			if(std::is_same<T, unsigned char>::value) {
+				this->x(random_char(static_cast<unsigned char>(x_min), static_cast<unsigned char>(x_max), generator));
+				this->y(random_char(static_cast<unsigned char>(x_min), static_cast<unsigned char>(x_max), generator));
+			}
 			break;
+
 		case 'b':
 			if(std::is_same<T, bool>::value) {
 				this->x(random_bool(generator));
 				this->y(random_bool(generator));
 			}
 			break;
+
 		case 's':
 			if(std::is_same<T, short>::value) {
 				this->x(random_int(x_min, x_max, generator));
 				this->y(random_int(y_min, y_max, generator));
 			}
+			if(std::is_same<T, uint16_t>::value) {
+				this->x(random_int(x_min, x_max, generator));
+				this->y(random_int(y_min, y_max, generator));
+			}
+			if(std::is_same<T, unsigned short>::value) {
+				this->x(random_int(x_min, x_max, generator));
+				this->y(random_int(y_min, y_max, generator));
+			}
 			break;
+
 		case 'i':
 			if(std::is_same<T, int>::value) {
 				this->x(random_int(x_min, x_max, generator));
 				this->y(random_int(y_min, y_max, generator));
 			}
+			if(std::is_same<T, uint32_t>::value) {
+				this->x(random_int(x_min, x_max, generator));
+				this->y(random_int(y_min, y_max, generator));
+			}
+			if(std::is_same<T, unsigned int>::value) {
+				this->x(random_int(x_min, x_max, generator));
+				this->y(random_int(y_min, y_max, generator));
+			}
 			break;
+
 		case 'l':
 			if(std::is_same<T, long>::value) {
 				this->x(random_long(x_min, x_max, generator));
 				this->y(random_long(y_min, y_max, generator));
 			}
+			if(std::is_same<T, uint64_t>::value) {
+				this->x(random_long(x_min, x_max, generator));
+				this->y(random_long(y_min, y_max, generator));
+			}
+			if(std::is_same<T, unsigned long>::value) {
+				this->x(random_long(x_min, x_max, generator));
+				this->y(random_long(y_min, y_max, generator));
+			}
 			break;
+
 		case 'f':
 			if(std::is_same<T, float>::value) {
 				this->x(random(x_min, x_max, generator));
 				this->y(random(y_min, y_max, generator));				
 			}
-
 			break;
 		case 'd':
 			if(std::is_same<T, double>::value) {
@@ -793,7 +829,7 @@ vec2<T>	& vec2<T>::rand(T const &x_min, T const &y_min,
 			break;
 		default:
 			if(vec2<T>::_warning) {
-				std::cout << "vec2<T>::rand(); wait <T arg> like bool, char, int, float, double" << std::endl;
+				std::cout << "vec2<T>::rand() wait <T arg> like bool, char, int, float, double" << std::endl;
 			}
 			abort();
 	}

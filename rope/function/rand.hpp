@@ -1,13 +1,15 @@
 /**
-* Rope C++
-* v 0.0.5
+* RANDOM CLASSIC
+* this random use the random c++ include
+* v 0.1.0
 * 2020-2020
+*
 * Rope C++ library adaptation in the same way of Rope from Processing
 * Rope mean ROmanesco Processing Environment at the beginning !!!
 * https://github.com/StanLepunK/Rope
 */
-#ifndef R_FUNCTIONS_H
-# define R_FUNCTIONS_H
+#ifndef R_RAND_H
+# define R_RAND_H
 
 #pragma once
 
@@ -15,8 +17,6 @@
 #include <cmath>
 #include <random>
 
-
-// random declaration
 float random(float max);
 float random(float min, float max);
 float random(float min, float max, std::default_random_engine &generator);

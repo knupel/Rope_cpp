@@ -20,9 +20,10 @@ int main() {
 void random_fast_test() {
 	int iter = 10;
 	float sum = 0;
-			uint32_t seed = random_int(UINT_MAX);
-		vec4<uint32_t> seed4;
-		seed4.rand(UINT_MAX);
+	uint32_t seed = random_int(UINT_MAX);
+	vec4<uint32_t> seed4;
+	seed4.rand(UINT_MAX);
+	std::cout << " seed4: " << seed4 << std::endl;
 	for(int i = 0 ; i < iter ; i++) {
 		std::cout << " random_fast_128(seed): " << random_fast_128(seed4) << std::endl;
 		float res = random_fast_128(seed4, -10, 10);

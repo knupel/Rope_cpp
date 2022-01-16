@@ -8,9 +8,13 @@ Contrary to Rope which is closely related to Processing, Rope C++ is free of any
 [rope](https://github.com/StanLepunK/Rope) and [Processing](https://github.com/processing/processing)
 
 # TEST
-Tout le code possède une partie test que vous retrouvez dans le dossier `test`, vous pouvez les lancer via les différents que vous trouverez dans le dossier `run`
+Tout le code possède une partie test que vous retrouvez dans le dossier `test`, vous pouvez les lancer via les différents que vous trouverez dans le dossier `run` 
+
+sélectionné votre script et `$bash your_script.sh`
 
 All the code has a test part that you can find in the `test` directory, you can run them through the different ones you can find in the `run` directory.
+
+select your script `$bash your_script.sh`
 
 # CONTENT
 L'ensemble du code se trouve dans le dossier `rope`si vous souhaitez vous en servir copier coller le dans votre projet et faire vos `include` en respectant le chemin.

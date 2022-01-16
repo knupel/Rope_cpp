@@ -1,5 +1,5 @@
 #include "../rope/template/utils/r_utils.hpp"
-#include "../rope/rope_functions.hpp"
+#include "../rope/rope.hpp"
 #include "../rope/template/vec/vec4.hpp"
 
 #include <iostream>

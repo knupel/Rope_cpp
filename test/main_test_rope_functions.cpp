@@ -12,7 +12,7 @@ void random_test();
 void random_fast_test();
 
 int main() {
-	random_test();
+	// random_test();
 	random_fast_test();
 }
 

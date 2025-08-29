@@ -43,8 +43,4 @@ void random_test() {
 	std::cout << f_3.z(8) << std::endl;
 	std::cout << f_3.rand(0,1000,generator) <<std::endl;
 
-
-
-
-
 }

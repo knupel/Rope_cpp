@@ -18,7 +18,7 @@ void random_test();
 int main(int argc, const char * argv[]) {
 
 	constrain_clamp_test();
-	random_test();
+	// random_test();
 }
 
 

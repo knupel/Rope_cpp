@@ -1,8 +1,8 @@
 /**
 * RANDOM CLASSIC
 * this random use the random c++ include
-* v 0.1.0
-* 2020-2020
+* v 0.1.1
+* 2020-2025
 */
 
 
@@ -85,23 +85,28 @@ bool random_bool(std::default_random_engine &generator) {
 	return gen_rand_int(generator); 
 }
 
-// rand char
-char random_char(char max) {
-	std::random_device seed;
-	std::default_random_engine generator(seed());
-	return random_char('a',max,generator);
-}
+// rand char 
+/**
+ * This function cause a problem in 2025
+ * */
+// char random_char(char max) {
+// 	std::random_device seed;
+// 	std::default_random_engine generator(seed());
+// 	return random_char('a',max,generator);
+// }
 
-char random_char(char min, char max) {
-	std::random_device seed;
-	std::default_random_engine generator(seed());
-	return random_char(min,max,generator);
-}
+// char random_char(char min, char max) {
+// 	std::random_device seed;
+// 	std::default_random_engine generator(seed());
+// 	return random_char(min,max,generator);
+// }
 
-char random_char(char min, char max, std::default_random_engine &generator) {
-	std::uniform_int_distribution<char> gen_rand_int(min,max);
-	return (gen_rand_int(generator));
-}
+
+
+// char random_char(char min, char max, std::default_random_engine &generator) {
+// 	std::uniform_int_distribution<char> gen_rand_int(min,max);
+// 	return (gen_rand_int(generator));
+// }
 
 // rand int
 int random_int(int max) {
@@ -121,23 +126,26 @@ int random_int(int min, int max, std::default_random_engine &generator) {
 	return gen_rand_int(generator); 
 }
 
-// random long
-long random_long(long max) {
-	std::random_device seed;
-	std::default_random_engine generator(seed());
-	return random_long(0,max,generator);
-}
+// random long 
+/**
+ * This function cause a problem in 2025
+ * */
+// long random_long(long max) {
+// 	std::random_device seed;
+// 	std::default_random_engine generator(seed());
+// 	return random_long(0,max,generator);
+// }
 
-long random_long(long min, long max) {
-	std::random_device seed;
-	std::default_random_engine generator(seed());
-	return random_long(min,max,generator);
-}
+// long random_long(long min, long max) {
+// 	std::random_device seed;
+// 	std::default_random_engine generator(seed());
+// 	return random_long(min,max,generator);
+// }
 
-long random_long(long min, long max, std::default_random_engine &generator) {
-	std::uniform_int_distribution<long> gen_rand_int(min,max);
-	return gen_rand_int(generator); 
-}
+// long random_long(long min, long max, std::default_random_engine &generator) {
+// 	std::uniform_int_distribution<long> gen_rand_int(min,max);
+// 	return gen_rand_int(generator); 
+// }
 
 
 // rand normal

@@ -2,8 +2,8 @@
 # define VEC3_H
 /*
 * vec3
-* v 0.0.7
-* 2020-2020
+* v 0.0.8
+* 2020-2025
 * Template Vec adapted from Rope Vector, Processing PVector, Openframework and GLSL.
 */
 #include "vec2.hpp"
@@ -154,9 +154,9 @@ public:
 	// barycenter
 	vec3 barycenter(vec3<T> const &other) const;
 
-	//map
-	vec3 & map(T const &start_src, T const &stop_src, T const &start_dst, T const &stop_dst);
-	vec3 & map(vec3<T> const &start_src, vec3<T> const &stop_src, vec3<T> const &start_dst, vec3<T> const &stop_dst);
+	//mapping
+	vec3 & mapping(T const &start_src, T const &stop_src, T const &start_dst, T const &stop_dst);
+	vec3 & mapping(vec3<T> const &start_src, vec3<T> const &stop_src, vec3<T> const &start_dst, vec3<T> const &stop_dst);
 
 
 
@@ -576,16 +576,16 @@ vec3<T>	vec3<T>::barycenter(vec3<T> const &other) const {
 }
 
 
-//map
+//mapping
 template <class T>
-vec3<T>	& vec3<T>::map(T const &start_src, T const &stop_src, T const &start_dst, T const &stop_dst) {
-	vec2<T>::map(start_src, stop_src, start_dst, stop_dst);
+vec3<T>	& vec3<T>::mapping(T const &start_src, T const &stop_src, T const &start_dst, T const &stop_dst) {
+	vec2<T>::mapping(start_src, stop_src, start_dst, stop_dst);
 	return *this;
 }
 
 template <class T>
-vec3<T>	& vec3<T>::map(vec3<T> const &start_src, vec3<T> const &stop_src, vec3<T> const &start_dst, vec3<T> const &stop_dst) {
-	vec2<T>::map(start_src, stop_src, start_dst, stop_dst);
+vec3<T>	& vec3<T>::mapping(vec3<T> const &start_src, vec3<T> const &stop_src, vec3<T> const &start_dst, vec3<T> const &stop_dst) {
+	vec2<T>::mapping(start_src, stop_src, start_dst, stop_dst);
 	return *this;
 }
 
@@ -1039,7 +1039,7 @@ template <class T>
 int vec3<T>::instance = 0;
 
 
-// get exoctic
+// get exotic
 // special
 template <class T>
 vec3<T> vec3<T>::rgb() const{

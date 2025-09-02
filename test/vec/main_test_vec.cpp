@@ -332,14 +332,14 @@ int main() {
 
 
 	/**
-	* MAP
+	* mapping
 	*/
 	// std::cout << d << std::endl;
-	// std::cout << d.map(0,10,0,100) << std::endl;
-	// std::cout << d.map(	vec2<float>(0), vec2<float>(1), 
+	// std::cout << d.mapping(0,10,0,100) << std::endl;
+	// std::cout << d.mapping(	vec2<float>(0), vec2<float>(1), 
 	// 										vec2<float>(10), vec2<float>(100,1000)) << std::endl;
 
-	// std::cout << f_3.map(0,10,0,100) << std::endl;
+	// std::cout << f_3.mapping(0,10,0,100) << std::endl;
 
 
 

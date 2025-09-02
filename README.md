@@ -39,7 +39,7 @@ All the code is in the `rope` directory if you want to use it, copy and paste it
 
 ### template functions utils
 * void set_list(std::vector<V,A> &list, T ... elem);
-* T map(T const &arg, T const &start_src, T const &stop_src, T const &start_dst, T const &stop_dst);
+* T mapping(T const &arg, T const &start_src, T const &stop_src, T const &start_dst, T const &stop_dst);
 * T constrain(T const &arg, T const &min, T const &max);
 * T clamp(T const &arg, T const &min, T const &max);
 * bool dist_manhattan(T dist, T x, T y ,T z = 0, T w = 0);

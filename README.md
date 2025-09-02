@@ -8,7 +8,7 @@ Contrary to Rope which is closely related to Processing, Rope C++ is free of any
 [rope](https://github.com/StanLepunK/Rope) and [Processing](https://github.com/processing/processing)
 
 # TEST
-Tout le code possède une partie test que vous retrouvez dans le dossier `test`, vous pouvez les lancer via les différents que vous trouverez dans le dossier `run` 
+Tout le code possède une partie test que vous retrouvez dans le dossier `test`, vous pouvez les lancer via les scripts que vous trouverez dans le dossier `run` 
 
 sélectionné votre script et `$bash your_script.sh`
 
@@ -61,9 +61,11 @@ All the code is in the `rope` directory if you want to use it, copy and paste it
 * int random_int(int min, int max);
 * int random_int(int min, int max, std::default_random_engine &generator);
 
+- The function below may not work
 * long random_long(long min, long max);
 * long random_long(long min, long max, std::default_random_engine &generator);
 
+- The function below may not work
 * char random_char(char min, char max);
 * char random_char(char min, char max, std::default_random_engine &generator);
 

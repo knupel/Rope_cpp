@@ -61,11 +61,11 @@ All the code is in the `rope` directory if you want to use it, copy and paste it
 * int random_int(int min, int max);
 * int random_int(int min, int max, std::default_random_engine &generator);
 
-##### The function below may not work
+##### The function `long` below may not work
 * long random_long(long min, long max);
 * long random_long(long min, long max, std::default_random_engine &generator);
 
-##### The function below may not work
+##### The function `char` below may not work
 * char random_char(char min, char max);
 * char random_char(char min, char max, std::default_random_engine &generator);
 

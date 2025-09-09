@@ -1,11 +1,11 @@
 # ROPE C++
 Rope c++ est une collection de fonctions, template et de classe inspirée de la librairie Rope et de Processing.
 Contrairement à Rope qui est très lié à Processing, Rope C++ est libre de tout framework et peut-être utilisée seule.
-[rope](https://github.com/StanLepunK/Rope) et [Processing](https://github.com/processing/processing)
+[rope](https://github.com/knupel/Rope) et [Processing](https://github.com/processing/processing)
 
 Rope c++ is a collection of functions, templates and classes inspired by the Rope library and Processing.
 Contrary to Rope which is closely related to Processing, Rope C++ is free of any framework and can be used alone.
-[rope](https://github.com/StanLepunK/Rope) and [Processing](https://github.com/processing/processing)
+[rope](https://github.com/knupel/Rope) and [Processing](https://github.com/processing/processing)
 
 # TEST
 Tout le code possède une partie test que vous retrouvez dans le dossier `test`, vous pouvez les lancer via les scripts que vous trouverez dans le dossier `run` 

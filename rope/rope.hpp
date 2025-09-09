@@ -19,11 +19,11 @@
 #include <string>
 
 #include "./template/utils/r_utils.hpp"
-#include "./class/R_Lexicon.hpp"
+#include "./class/R_Constants.hpp"
 #include "./template/vec/vec3.hpp"
 
 // class Singleton Rope
-class Rope : public R_Lexicon {
+class Rope : public R_Constants {
 private:
 	static Rope *instance;
 	Rope();

@@ -11,4 +11,5 @@ ${path}*.cpp \
 ${path_function}*.cpp \
 ${path_test}main_test_constants.cpp \
 && ./a.out \
-&& rm ${path}*.gch ${path_template}constants/*.gch ${path}*.pch ${path_template}constants/*.pch
+&& rm ${path}*.gch ${path_template}constants/*.gch \
+${path}*.pch ${path_template}constants/*.pch

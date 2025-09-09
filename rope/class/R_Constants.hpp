@@ -10,17 +10,6 @@
 
 class R_Constants {
 public:
-
-	// // const int ROPE_VERSION = 1;
-
-	// const int NOTHING = 0;
-	// const int NONE = 0;
-	// // const int NULL = 0; interdit d'utilisation, valeur réservée
-	// const int BLANK = 0;
-
-	// const int NORMAL = 1;
-	// const int LINEAR = 1;
-
 	const double PI = 3.1415926535;
 	const double TWO_PI = 2*PI;
 	const double TAU = TWO_PI;
@@ -44,7 +33,7 @@ public:
 
 		NORMAL = 1,
 		LINEAR = 1,
-		
+
 		CORNER ,CORNERS, RADIUS, DIAMETER,
 		CENTER = 3,
 		SIDE = 9,
@@ -311,8 +300,6 @@ public:
 		// FUSCHIA > #FD3F92 > 0.927193 , 0.7509881 , 0.99215686
 		FUSCHIA = -180334,
 
-
-
 		// VIOLET  > color(.7496,1,1);
 		VIOLET = -8453889,  
 		PURPLE = -8453889,
@@ -333,8 +320,6 @@ public:
 		// AUBERGINE > #370028 > 0.8787879 , 1.0 , 0.21568628
 		AUBERGINE = -13172696,
   };
-
 };
-
 
 #endif

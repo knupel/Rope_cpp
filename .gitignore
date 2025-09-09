@@ -18,6 +18,7 @@ Thumbs.db
 
 # Precompiled Headers
 *.gch
+# Precompiled Headers from VS CODE
 *.pch
 
 # Compiled Dynamic libraries

@@ -1,10 +1,10 @@
 /**
 * Rope C++
-* v 0.1.0
-* 2020-2020
+* v 0.1.1
+* 2020-2025
 * Rope C++ library adaptation in the same way of Rope from Processing
 * Rope mean ROmanesco Processing Environment at the beginning !!!
-* https://github.com/StanLepunK/Rope
+* https://github.com/knupel/Rope
 */
 #ifndef ROPE_H
 # define ROPE_H

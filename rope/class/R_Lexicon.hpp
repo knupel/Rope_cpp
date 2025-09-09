@@ -7,8 +7,33 @@
 #ifndef R_LEXICON_H
 # define R_LEXICON_H
 
+
 class R_Lexicon {
 public:
+
+	const int ROPE_VERSION = 1;
+
+	const int NOTHING = 0;
+	const int NONE = 0;
+	// const int NULL = 0; interdit d'utlisation, valeur réservée
+	const int BLANK = 0;
+
+	const int NORMAL = 1;
+	const int LINEAR = 1;
+
+	const float PI = 3.1415926535;
+	const float TWO_PI = 2*PI;
+	const float TAU = TWO_PI;
+
+	const float NORTH = -(PI *0.5f);
+	const float NORTH_EAST = -(PI *0.25f);
+	const float EAST = 0;
+	const float SOUTH_EAST = PI *0.25f;
+	const float SOUTH = PI * 0.5f;
+	const float SOUTH_WEST = PI * 0.75f;
+	const float WEST = PI;
+	const float NORTH_WEST = -(PI * 0.75f);
+
 	enum Constants {
 		RGB = 1,
 		HSB = 3,

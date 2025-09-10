@@ -25,7 +25,7 @@ struct R_Constants {
 	static constexpr float NORTH_WEST = -(3.1415926535 * 0.75);
 
 	enum Constants {
-		ROPE_VERSION = 1,
+		ROPE_VERSION = 2,
 
 		NOTHING = 0,
 		NONE = 0,

@@ -1,6 +1,6 @@
 /**
 * Rope CONSTANTS
-* v 0.2.0
+* v 0.2.1
 * 2020-2025
 */
 
@@ -8,20 +8,21 @@
 # define R_CONSTANTS_H
 
 
-class R_Constants {
-public:
-	const double PI = 3.1415926535;
-	const double TWO_PI = 2*PI;
-	const double TAU = TWO_PI;
 
-	const float NORTH = -(PI *0.5f);
-	const float NORTH_EAST = -(PI *0.25f);
+
+struct R_Constants {
+	const double PI = 3.1415926535;
+	const double TWO_PI = 2*3.1415926535;
+	const double TAU = 2*3.1415926535;
+
+	const float NORTH = -(3.1415926535 * 0.5);
+	const float NORTH_EAST = -(3.1415926535 *0.25);
 	const float EAST = 0;
-	const float SOUTH_EAST = PI *0.25f;
-	const float SOUTH = PI * 0.5f;
-	const float SOUTH_WEST = PI * 0.75f;
-	const float WEST = PI;
-	const float NORTH_WEST = -(PI * 0.75f);
+	const float SOUTH_EAST = 3.1415926535 *0.25;
+	const float SOUTH = 3.1415926535 * 0.5;
+	const float SOUTH_WEST = 3.1415926535 * 0.75;
+	const float WEST = 3.1415926535;
+	const float NORTH_WEST = -(3.1415926535 * 0.75);
 
 	enum Constants {
 		ROPE_VERSION = 1,
@@ -33,7 +34,7 @@ public:
 
 		NORMAL = 1,
 		LINEAR = 1,
-
+		
 		CORNER ,CORNERS, RADIUS, DIAMETER,
 		CENTER = 3,
 		SIDE = 9,
@@ -300,6 +301,8 @@ public:
 		// FUSCHIA > #FD3F92 > 0.927193 , 0.7509881 , 0.99215686
 		FUSCHIA = -180334,
 
+
+
 		// VIOLET  > color(.7496,1,1);
 		VIOLET = -8453889,  
 		PURPLE = -8453889,
@@ -320,6 +323,8 @@ public:
 		// AUBERGINE > #370028 > 0.8787879 , 1.0 , 0.21568628
 		AUBERGINE = -13172696,
   };
+
 };
+
 
 #endif

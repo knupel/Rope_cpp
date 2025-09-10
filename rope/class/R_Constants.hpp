@@ -1,6 +1,6 @@
 /**
 * Rope CONSTANTS
-* v 0.2.1
+* v 0.2.2
 * 2020-2025
 */
 
@@ -11,18 +11,18 @@
 
 
 struct R_Constants {
-	const double PI = 3.1415926535;
-	const double TWO_PI = 2*3.1415926535;
-	const double TAU = 2*3.1415926535;
+	static constexpr double PI = 3.1415926535;
+	static constexpr double TWO_PI = 2*3.1415926535;
+	static constexpr double TAU = 2*3.1415926535;
 
-	const float NORTH = -(3.1415926535 * 0.5);
-	const float NORTH_EAST = -(3.1415926535 *0.25);
-	const float EAST = 0;
-	const float SOUTH_EAST = 3.1415926535 *0.25;
-	const float SOUTH = 3.1415926535 * 0.5;
-	const float SOUTH_WEST = 3.1415926535 * 0.75;
-	const float WEST = 3.1415926535;
-	const float NORTH_WEST = -(3.1415926535 * 0.75);
+	static constexpr float NORTH = -(3.1415926535 * 0.5);
+	static constexpr float NORTH_EAST = -(3.1415926535 *0.25);
+	static constexpr float EAST = 0;
+	static constexpr float SOUTH_EAST = 3.1415926535 *0.25;
+	static constexpr float SOUTH = 3.1415926535 * 0.5;
+	static constexpr float SOUTH_WEST = 3.1415926535 * 0.75;
+	static constexpr float WEST = 3.1415926535;
+	static constexpr float NORTH_WEST = -(3.1415926535 * 0.75);
 
 	enum Constants {
 		ROPE_VERSION = 1,
